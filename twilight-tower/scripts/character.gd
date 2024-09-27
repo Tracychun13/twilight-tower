@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 120.0
 @onready var sprite2d = $AnimatedSprite2D
+
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	input_direction.normalized()
