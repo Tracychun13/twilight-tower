@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cndebk628rpcc"]
 
 [ext_resource type="Script" path="res://scripts/hole.gd" id="1_ny108"]
-[ext_resource type="Texture2D" uid="uid://yri20celxtpo" path="res://assets/dungeon_tileset.png" id="1_wkr3o"]
+[ext_resource type="Texture2D" uid="uid://yri20celxtpo" path="res://assets/environment/dungeon_tileset.png" id="1_wkr3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e66p2"]
 radius = 15.0
