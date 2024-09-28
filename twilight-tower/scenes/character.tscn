@@ -142,7 +142,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,8 +231,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwqvd"]
-height = 26.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u4f5a"]
+radius = 14.0
+height = 28.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
@@ -240,11 +241,13 @@ collision_layer = 2
 script = ExtResource("1_051no")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -21)
+position = Vector2(3, -20)
 sprite_frames = SubResource("SpriteFrames_oldj6")
-animation = &"walk"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
-shape = SubResource("CapsuleShape2D_gwqvd")
+position = Vector2(-1, -11)
+shape = SubResource("CapsuleShape2D_u4f5a")
+one_way_collision_margin = 0.0
+debug_color = Color(0.477435, 0.443364, 0.988731, 0.42)
