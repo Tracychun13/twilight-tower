@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkxva68b8o82j"]
+[gd_scene load_steps=8 format=3 uid="uid://bkxva68b8o82j"]
 
 [ext_resource type="Texture2D" uid="uid://cxt3f4qfx1w5u" path="res://assets/enemy_sprite_1/Owlet_Monster_Idle_4.png" id="1_gcb7x"]
 [ext_resource type="Script" path="res://scripts/enemy_1.gd" id="1_w8dxn"]
@@ -39,10 +39,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_syrt7"]
-radius = 12.0
-height = 28.0
-
 [node name="Enemy1" type="CharacterBody2D"]
 collision_mask = 3
 motion_mode = 1
@@ -55,15 +51,14 @@ sprite_frames = SubResource("SpriteFrames_ddfov")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -13)
-shape = SubResource("CapsuleShape2D_syrt7")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 34.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6, 0, -8, -5, -8, -8, -13, -16, -13, -19, -9, -25, -5, -27, -2, -27, 2, -27, 5, -26, 8, -23, 8, -21, 9, -18, 9, -14, 7, -10, 8, -8, 8, -5, 5, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
