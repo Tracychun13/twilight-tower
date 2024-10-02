@@ -1,7 +1,7 @@
 # Twilight-Towers
 1-bit jam #4. Game with only 2 colors and theme is tower.
 
-## Sprites Checklist
+## ✔️ Sprites Checklist
 
 - [ ] Static
   - [ ] Hole
