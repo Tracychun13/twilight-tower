@@ -5,7 +5,7 @@
 
 - [ ] Static
   - [ ] Hole
-  - [ X ] Tower Tile
+  - [x] Tower Tile
   - [ ] Flooring
   - [ ] Stairs
   - [ ] Door
