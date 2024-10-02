@@ -3,7 +3,7 @@
 
 ## ✔️ Sprites Checklist
 
-- [ ] Static
+- [x] Static
   - [x] Hole
   - [x] Tower Tile
   - [x] Flooring
