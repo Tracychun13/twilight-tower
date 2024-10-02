@@ -4,11 +4,11 @@
 ## ✔️ Sprites Checklist
 
 - [ ] Static
-  - [ ] Hole
+  - [x] Hole
   - [x] Tower Tile
-  - [ ] Flooring
-  - [ ] Stairs
-  - [ ] Door
+  - [x] Flooring
+  - [x] Stairs
+  - [x] Door
 - [ ] Animate
   - [ ] Player
     - [ ] Walk
