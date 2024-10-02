@@ -3,7 +3,6 @@
 
 ## Status
 
-
 | Task   | Status |
 |--------|--------|
 | Task 1 | [x]    |
