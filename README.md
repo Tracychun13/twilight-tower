@@ -16,5 +16,5 @@
     - [ ] Shield
     - [ ] Attack
   - [ ] Spider
-  - [ ] Ghost
-  - [ ] Bat
+  - [x] Ghost
+  - [x] Bat
