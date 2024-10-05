@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bylabuky10ay8"]
+[gd_scene load_steps=43 format=4 uid="uid://bylabuky10ay8"]
 
 [ext_resource type="Script" path="res://scripts/game_1.gd" id="1_3tquk"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment/tilemap.png" id="2_vs8ev"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="4_jcbiw"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="5_owri1"]
 [ext_resource type="PackedScene" uid="uid://bkxva68b8o82j" path="res://scenes/bat.tscn" id="6_ucxug"]
+[ext_resource type="PackedScene" uid="uid://d2ia8rh1mmtxd" path="res://scenes/ghost.tscn" id="7_ybydf"]
 [ext_resource type="Script" path="res://scenes/next_level_1.gd" id="8_ss6lk"]
 [ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="9_mmbuv"]
 
@@ -530,6 +531,9 @@ collision_mask = 6
 
 [node name="hole" parent="." instance=ExtResource("5_owri1")]
 position = Vector2(219, 109)
+
+[node name="Ghost" parent="." instance=ExtResource("7_ybydf")]
+position = Vector2(1, 26)
 
 [node name="Bat" parent="." instance=ExtResource("6_ucxug")]
 position = Vector2(48, 42)

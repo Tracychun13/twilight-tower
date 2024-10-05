@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
-
+@onready var player = $"../Player"
+@onready var hole = $"../hole"
 const SPEED = 250.0
-var is_summoned = false
-var player_pos = Vector2(0.0, 0.0)
-var hole_pos = Vector2(0.0, 0.0)
+var can_move = false
 var has_grabbed = false
+
 func _ready() -> void:
 	pass
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta) -> void:
 	if not has_grabbed:
-		velocity = SPEED*player_pos
+		velocity = SPEED*player.position
 	else:
-		velocity = (SPEED/3)*hole_pos
+		velocity = (SPEED/3)*hole.position
 	move_and_slide()
