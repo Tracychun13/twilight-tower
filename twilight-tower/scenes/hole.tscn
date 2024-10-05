@@ -1,21 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://cndebk628rpcc"]
+[gd_scene load_steps=7 format=3 uid="uid://cndebk628rpcc"]
 
 [ext_resource type="Script" path="res://scripts/hole.gd" id="1_ny108"]
-[ext_resource type="Texture2D" uid="uid://yri20celxtpo" path="res://assets/environment/dungeon_tileset.png" id="1_wkr3o"]
+[ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment/tilemap.png" id="2_5eumw"]
+
+[sub_resource type="Animation" id="Animation_owh6s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.000979732]
+}
+
+[sub_resource type="Animation" id="Animation_1k3st"]
+resource_name = "warp"
+length = 1.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.866667, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.000979732, 0.154798, -0.00106424, -0.0961862]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kknq3"]
+_data = {
+"RESET": SubResource("Animation_owh6s"),
+"warp": SubResource("Animation_1k3st")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e66p2"]
-radius = 15.0
+radius = 17.0
 
 [node name="hole" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_ny108")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_e66p2")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wkr3o")
+position = Vector2(4.76837e-07, 0)
+rotation = -0.000979732
+scale = Vector2(0.488095, 0.463855)
+texture = ExtResource("2_5eumw")
 region_enabled = true
-region_rect = Rect2(159.522, 48.2765, 32.3596, 31.2533)
+region_rect = Rect2(214, 83.75, 84, 84)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_kknq3")
+}
+autoplay = "warp"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_e66p2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

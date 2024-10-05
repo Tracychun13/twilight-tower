@@ -5,6 +5,7 @@ const SPEED = 50.0
 @onready var player = $"../Player"
 @onready var navigation_agent_enemy_1: NavigationAgent2D = $NavigationAgent2D
 @onready var timer = $Timer
+
 func _ready() -> void:
 	find_hero()
 

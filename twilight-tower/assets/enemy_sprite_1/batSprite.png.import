@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxt3f4qfx1w5u"
-path="res://.godot/imported/Owlet_Monster_Idle_4.png-99c32d7453075386c8b4e8d9f6dae50b.ctex"
+uid="uid://die4rhwkgo1fl"
+path="res://.godot/imported/batSprite.png-9685291ca48c79ab8e8eabb38a284570.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_sprite_1/Owlet_Monster_Idle_4.png"
-dest_files=["res://.godot/imported/Owlet_Monster_Idle_4.png-99c32d7453075386c8b4e8d9f6dae50b.ctex"]
+source_file="res://assets/enemy_sprite_1/batSprite.png"
+dest_files=["res://.godot/imported/batSprite.png-9685291ca48c79ab8e8eabb38a284570.ctex"]
 
 [params]
 

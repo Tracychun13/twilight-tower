@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccys3h26v3rnb"]
+
+[ext_resource type="AudioStream" uid="uid://4gp8at7q4k6p" path="res://assets/audio/bg.wav" id="1_65fk5"]
+
+[node name="BackgroundScore" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_65fk5")
+autoplay = true
