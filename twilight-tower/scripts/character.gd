@@ -4,7 +4,9 @@ extends CharacterBody2D
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
 var is_attacking = false
+var is_in_light = false
 var can_attack = false
+var is_captured_by_ghost = false
 @onready var sprite2d = $AnimatedSprite2D
 
 func die():
@@ -44,4 +46,6 @@ func get_input():
 
 func _physics_process(_delta: float) -> void:
 	get_input()
+	if is_captured_by_ghost:
+		velocity = ZERO_VEC
 	move_and_slide()

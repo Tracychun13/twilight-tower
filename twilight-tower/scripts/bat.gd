@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 50.0
+var health = 100.0
 @onready var player = $"../Player"
 @onready var navigation_agent_enemy_1: NavigationAgent2D = $NavigationAgent2D
 @onready var timer = $Timer

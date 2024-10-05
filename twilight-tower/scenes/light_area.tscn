@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://yhbfe0l1ogs4" path="res://assets/environment/LightSprite.png" id="2_b1a5u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd25a"]
-radius = 69.029
+radius = 66.0076
 
 [node name="light" type="Area2D"]
 collision_mask = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d2ia8rh1mmtxd"]
 
-[ext_resource type="Script" path="res://scripts/bat.gd" id="1_yfeqj"]
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_sy2ur"]
 [ext_resource type="Texture2D" uid="uid://t1bnpq1lxl0" path="res://assets/ghost_assets/ghost.png" id="2_tlda2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3q2ii"]
@@ -26,10 +26,11 @@ animations = [{
 }]
 
 [node name="Ghost" type="CharacterBody2D"]
+collision_layer = 8
 collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_yfeqj")
+script = ExtResource("1_sy2ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
@@ -38,14 +39,5 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.309421
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 21.0
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-9, -14, -9, -6, 11, -6, 11, -14, 10, -22, 6, -28, -4, -28, -8, -23)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
