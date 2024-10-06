@@ -11,8 +11,8 @@
   - [x] Door
 - [ ] Animate
   - [ ] Player
-    - [ ] Walk
-    - [ ] Idle
+    - [x] Walk
+    - [x] Idle
     - [ ] Shield
     - [ ] Attack
   - [ ] Spider
