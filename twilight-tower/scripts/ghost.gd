@@ -17,15 +17,15 @@ func _ready() -> void:
 	set_process(true)
 
 func _process(delta: float) -> void:
-	if has_grabbed:
+	if not is_waiting and has_grabbed:
 		var target_direction = (home-self.position).normalized()
+		player.ghost_drag_vector = velocity
 		velocity = target_direction*HALF_SPEED
-	elif not is_waiting:
+	elif not is_waiting and not has_grabbed:
 		var target_direction = (player.position-self.position).normalized()	
 		velocity = target_direction*SPEED
 	else:
 		velocity = ((home-self.position).normalized()*HALF_SPEED)
-		player.ghost_drag_vector = velocity
 	
 	self.translate(velocity*delta)
 
