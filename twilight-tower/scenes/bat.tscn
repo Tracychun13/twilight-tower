@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkxva68b8o82j"]
+[gd_scene load_steps=13 format=3 uid="uid://bkxva68b8o82j"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_w8dxn"]
 [ext_resource type="Texture2D" uid="uid://die4rhwkgo1fl" path="res://assets/enemy_sprite_1/batSprite.png" id="2_wgu2g"]
@@ -54,10 +54,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1qupw"]
-radius = 7.0
+radius = 8.06226
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrg7o"]
 radius = 147.085
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rwty"]
+size = Vector2(28, 20)
 
 [node name="Bat" type="CharacterBody2D"]
 collision_mask = 3
@@ -74,17 +77,24 @@ frame_progress = 0.213832
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 21.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BatBody" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1qupw")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Range" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_xrg7o")
 
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("RectangleShape2D_2rwty")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_entered"]
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_entered"]
+[connection signal="body_exited" from="CollisionArea" to="." method="_on_collision_area_exited"]

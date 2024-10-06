@@ -36,23 +36,23 @@ func get_input():
 		is_attacking = false
 	
 	if not is_attacking:
+		#if Input.is_action_pressed("shield"):
+			#sprite2d.play("shield")
+			#is_shielding = true;
 		if Input.is_action_pressed("left"):
 			sprite2d.flip_h = true
 			sprite2d.play("walkRight")
-			is_shielding = false;
+			
 		elif Input.is_action_pressed("right"):
 			sprite2d.flip_h = false
 			sprite2d.play("walkRight")
-			is_shielding = false;
+			
 		elif Input.is_action_pressed("down"):
 			sprite2d.play("walkForward")
-			is_shielding = false;
+			
 		elif Input.is_action_pressed("up"):
 			sprite2d.play("walkBackward")
-			is_shielding = false;
-		#elif Input.is_action_pressed("shield"):
-			#sprite2d.play("shield")
-			#is_shielding = true;
+			
 		else:
 			sprite2d.play("idle")
 	else:
@@ -60,10 +60,15 @@ func get_input():
 
 # when bat hits the player call this
 func playerDamaged(value):
-	if(is_shielding):
-		shieldHealth -= value;
-	elif(not(health <= 0)):
-		health -= value; 
+	
+	if(is_shielding and shieldHealth > 0):
+		shieldHealth -= value
+		print(shieldHealth)
+	elif(health > 0):
+		health -= value
+		print(health)
+		if(health == 0):
+			die();
 		sprite2d.play("hurt")
 	else:
 		die();
