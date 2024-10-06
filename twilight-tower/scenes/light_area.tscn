@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://kpuvt45selag"]
+[gd_scene load_steps=5 format=3 uid="uid://kpuvt45selag"]
 
 [ext_resource type="Script" path="res://scripts/light_area.gd" id="1_s5xwa"]
-[ext_resource type="Texture2D" uid="uid://yhbfe0l1ogs4" path="res://assets/environment/LightSprite.png" id="2_b1a5u"]
+[ext_resource type="Shader" path="res://scenes/invert_colors.gdshader" id="2_h5bw8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1nbr"]
+shader = ExtResource("2_h5bw8")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd25a"]
 radius = 66.0076
 
 [node name="light" type="Area2D"]
+material = SubResource("ShaderMaterial_d1nbr")
 collision_mask = 2
 script = ExtResource("1_s5xwa")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.35, 2.35)
-texture = ExtResource("2_b1a5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kd25a")
