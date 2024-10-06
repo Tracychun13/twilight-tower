@@ -1,28 +1,43 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var player: CharacterBody2D
 @export var hole: Area2D
 @export var home: Vector2
-const SPEED = 150.0
+var velocity = Vector2()
+const SPEED = 125.0
 const HALF_SPEED = 75.0
 var is_waiting = true
 var has_grabbed = false
 
-func _physics_process(_delta: float) -> void:
+func _ready() -> void:
+	set_process(true)
+
+
+
+func _process(delta: float) -> void:
 	if not is_waiting:
 		print("Moving to player")
 		var target_direction = (player.position-self.position).normalized()
 		if has_grabbed:
 			target_direction = (home-self.position).normalized()
-			player.position = Vector2()
 		velocity = target_direction*SPEED
 	else:
 		print("Moving back")
 		velocity = ((home-self.position).normalized()*HALF_SPEED)
 	
-	move_and_slide()
+	self.translate(velocity*delta)
 
 func _on_timer_timeout() -> void:
 	print("timeout")
 	is_waiting = not is_waiting
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body == player:
+		player.is_captured_by_ghost = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body == player:
+		player.is_captured_by_ghost = false
