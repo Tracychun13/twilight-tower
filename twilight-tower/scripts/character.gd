@@ -3,7 +3,6 @@ extends CharacterBody2D;
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
 var is_attacking = false
-var is_in_light = false
 var can_attack = false
 var is_captured_by_ghost = false
 var health = 100;
@@ -62,9 +61,9 @@ func get_input():
 # when bat hits the player call this
 func playerDamaged(value):
 	if(is_shielding):
-		shieldHealth - value;
+		shieldHealth -= value;
 	elif(not(health <= 0)):
-		health - value; 
+		health -= value; 
 		sprite2d.play("hurt")
 	else:
 		die();

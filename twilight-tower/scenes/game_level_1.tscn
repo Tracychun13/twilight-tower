@@ -1,13 +1,13 @@
+
 [gd_scene load_steps=46 format=4 uid="uid://bylabuky10ay8"]
 
-[ext_resource type="Script" path="res://scripts/game_1.gd" id="1_3tquk"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment/tilemap.png" id="2_vs8ev"]
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/character.tscn" id="3_plep7"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="4_jcbiw"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="5_owri1"]
 [ext_resource type="PackedScene" uid="uid://bkxva68b8o82j" path="res://scenes/bat.tscn" id="6_ucxug"]
 [ext_resource type="PackedScene" uid="uid://d2ia8rh1mmtxd" path="res://scenes/ghost.tscn" id="7_ybydf"]
-[ext_resource type="Script" path="res://scenes/next_level_1.gd" id="8_ss6lk"]
+[ext_resource type="Script" path="res://next_level_1.gd" id="8_ss6lk"]
 [ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="9_mmbuv"]
 [ext_resource type="Shader" path="res://scenes/invert_colors.gdshader" id="10_1owbk"]
 [ext_resource type="Texture2D" uid="uid://yhbfe0l1ogs4" path="res://assets/environment/LightSprite.png" id="11_b75ox"]
@@ -507,7 +507,6 @@ size = Vector2(31, 25)
 shader = ExtResource("10_1owbk")
 
 [node name="Game_1" type="Node2D"]
-script = ExtResource("1_3tquk")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ktwm2")
@@ -530,31 +529,36 @@ limit_right = 300
 limit_bottom = 185
 limit_smoothed = true
 
-[node name="hole" parent="." instance=ExtResource("5_owri1")]
-position = Vector2(219, 109)
+[node name="light" parent="." node_paths=PackedStringArray("player", "bat", "ghost") instance=ExtResource("4_jcbiw")]
+position = Vector2(-23, -53)
+scale = Vector2(1.08, 1)
+collision_mask = 6
+player = NodePath("../Player")
+bat = NodePath("../Bat")
+ghost = NodePath("../Ghost")
 
-[node name="Ghost" parent="." instance=ExtResource("7_ybydf")]
-position = Vector2(1, 26)
-
-[node name="Bat" parent="." instance=ExtResource("6_ucxug")]
-position = Vector2(48, 42)
-collision_layer = 5
+[node name="Bat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ucxug")]
+position = Vector2(45, 18)
 safe_margin = 2.0
+player = NodePath("../Player")
+
+[node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_ybydf")]
+position = Vector2(193, 115)
+player = NodePath("../Player")
+hole = NodePath("../hole")
+home = Vector2(220, 110)
 
 [node name="Next_Level" type="Area2D" parent="."]
-position = Vector2(48, 42)
+position = Vector2(47, 50)
 collision_mask = 2
 script = ExtResource("8_ss6lk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
-position = Vector2(193.5, -212.5)
+position = Vector2(194, -220)
 shape = SubResource("RectangleShape2D_gdh20")
 
 [node name="BackgroundScore" parent="." instance=ExtResource("9_mmbuv")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
-autostart = true
+position = Vector2(-2, -1)
 
 [node name="LightSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_uwwce")
@@ -567,4 +571,3 @@ scale = Vector2(0.425, 0.425)
 collision_mask = 6
 
 [connection signal="body_entered" from="Next_Level" to="Next_Level" method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

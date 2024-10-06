@@ -25,10 +25,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Ghost" type="CharacterBody2D"]
-collision_mask = 2
-motion_mode = 1
-wall_min_slide_angle = 0.0
+[node name="Ghost" type="Node2D"]
 script = ExtResource("1_sy2ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -38,6 +35,18 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.309421
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 z_as_relative = false
-polygon = PackedVector2Array(-9, -14, -9, -6, 11, -6, 11, -14, 10, -22, 6, -28, -4, -28, -8, -23)
+polygon = PackedVector2Array(-8, -14, -8, -6, 10, -6, 10, -14, 10, -22, 6, -28, -4, -28, -8, -23)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
