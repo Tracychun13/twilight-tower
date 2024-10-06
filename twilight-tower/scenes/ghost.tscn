@@ -26,7 +26,6 @@ animations = [{
 }]
 
 [node name="Ghost" type="CharacterBody2D"]
-collision_mask = 2
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_sy2ur")
@@ -41,3 +40,9 @@ frame_progress = 0.309421
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 z_as_relative = false
 polygon = PackedVector2Array(-9, -14, -9, -6, 11, -6, 11, -14, 10, -22, 6, -28, -4, -28, -8, -23)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -60,9 +60,9 @@ func get_input():
 # when bat hits the player call this
 func playerDamaged(value):
 	if(is_shielding):
-		shieldHealth - value;
+		shieldHealth -= value;
 	elif(not(health <= 0)):
-		health - value; 
+		health -= value; 
 		sprite2d.play("hurt")
 	else:
 		die();
