@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkxva68b8o82j"]
+[gd_scene load_steps=11 format=3 uid="uid://bkxva68b8o82j"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_w8dxn"]
 [ext_resource type="Texture2D" uid="uid://die4rhwkgo1fl" path="res://assets/enemy_sprite_1/batSprite.png" id="2_wgu2g"]
@@ -53,6 +53,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1qupw"]
+radius = 7.0
+
 [node name="Bat" type="CharacterBody2D"]
 collision_mask = 3
 motion_mode = 1
@@ -60,7 +63,6 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_w8dxn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_ddfov")
 animation = &"idle"
 autoplay = "idle"
@@ -69,11 +71,11 @@ frame_progress = 0.213832
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 21.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1qupw")
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-10, -14, -5, -8, 8, -8, 12, -14, 16, -22, 15, -24, -13, -24, -14, -22)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

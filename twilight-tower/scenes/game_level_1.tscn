@@ -522,18 +522,21 @@ limit_right = 300
 limit_bottom = 185
 limit_smoothed = true
 
-[node name="light" parent="." instance=ExtResource("4_jcbiw")]
+[node name="light" parent="." node_paths=PackedStringArray("player", "bat", "ghost") instance=ExtResource("4_jcbiw")]
 position = Vector2(-23, -53)
 scale = Vector2(1.08, 1)
 collision_mask = 6
+player = NodePath("../Player")
+bat = NodePath("../Bat")
+ghost = NodePath("../Ghost")
 
 [node name="hole" parent="." instance=ExtResource("5_owri1")]
 position = Vector2(219, 109)
 
-[node name="Bat" parent="." instance=ExtResource("6_ucxug")]
-position = Vector2(48, 42)
-collision_layer = 5
+[node name="Bat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_ucxug")]
+position = Vector2(45, 18)
 safe_margin = 2.0
+player = NodePath("../Player")
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_ybydf")]
 position = Vector2(193, 115)
@@ -542,12 +545,12 @@ hole = NodePath("../hole")
 home = Vector2(220, 110)
 
 [node name="Next_Level" type="Area2D" parent="."]
-position = Vector2(48, 42)
+position = Vector2(47, 50)
 collision_mask = 2
 script = ExtResource("8_ss6lk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
-position = Vector2(193.5, -212.5)
+position = Vector2(194, -220)
 shape = SubResource("RectangleShape2D_gdh20")
 
 [node name="BackgroundScore" parent="." instance=ExtResource("9_mmbuv")]

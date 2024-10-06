@@ -3,7 +3,6 @@ extends CharacterBody2D
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
 var is_attacking = false
-var is_in_light = false
 var can_attack = false
 var is_captured_by_ghost = false
 var health = 100;
