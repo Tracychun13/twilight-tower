@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		var target_direction = (home-self.position).normalized()
 		velocity = target_direction*HALF_SPEED
 	elif not is_waiting:
-		var target_direction = (player.position-self.position).normalized()			
+		var target_direction = (player.position-self.position).normalized()	
 		velocity = target_direction*SPEED
 	else:
 		velocity = ((home-self.position).normalized()*HALF_SPEED)
@@ -40,9 +40,10 @@ func toggle_is_waiting() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
-		
+		has_grabbed = true
 		player.is_captured_by_ghost = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player:
+		has_grabbed = false
 		player.is_captured_by_ghost = false
