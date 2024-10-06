@@ -67,10 +67,6 @@ func playerDamaged(value):
 		sprite2d.play("hurt")
 	else:
 		die();
-func _on_body_entered(body: Node2D) -> void:
-	
-	playerDamaged(10)
-	print("damage 10")
 
 func _physics_process(_delta: float) -> void:
 	get_input()
