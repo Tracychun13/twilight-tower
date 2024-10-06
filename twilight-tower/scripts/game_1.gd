@@ -7,5 +7,5 @@ var is_ghost_spawned: bool = false
 @onready var ghost = $Ghost
 #func ghost_mechanic() -> void:
 
-func _on_timer_timeout() -> void:
-	ghost_mechanic()
+#func _on_timer_timeout() -> void:
+	#ghost_mechanic()
