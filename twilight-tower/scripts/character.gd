@@ -2,6 +2,7 @@ extends CharacterBody2D;
 
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
+var ghost_drag_vector = Vector2(0.0, 0.0)
 var is_attacking = false
 var can_attack = false
 var is_captured_by_ghost = false
@@ -76,5 +77,5 @@ func playerDamaged(value):
 func _physics_process(_delta: float) -> void:
 	get_input()
 	if is_captured_by_ghost:
-		velocity = ZERO_VEC
+		velocity = ghost_drag_vector
 	move_and_slide()

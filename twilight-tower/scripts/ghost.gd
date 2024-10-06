@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 		velocity = target_direction*SPEED
 	else:
 		velocity = ((home-self.position).normalized()*HALF_SPEED)
+		player.ghost_drag_vector = velocity
 	
 	self.translate(velocity*delta)
 
@@ -38,7 +39,6 @@ func toggle_is_waiting() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
-		print("player captured")
 		player.is_captured_by_ghost = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
