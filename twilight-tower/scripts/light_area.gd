@@ -14,3 +14,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player:
 		player.toggle_can_attack()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area == ghost.area_ref:
+		ghost.toggle_is_waiting()

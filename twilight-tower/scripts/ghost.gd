@@ -3,6 +3,8 @@ extends Node2D
 @export var player: CharacterBody2D
 @export var hole: Area2D
 @export var home: Vector2
+var area_ref: Area2D
+var ghost_timer: Timer
 var velocity = Vector2()
 const SPEED = 125.0
 const HALF_SPEED = 75.0
@@ -10,6 +12,8 @@ var is_waiting = true
 var has_grabbed = false
 
 func _ready() -> void:
+	area_ref = $Area2D
+	ghost_timer = $Timer
 	set_process(true)
 
 func _process(delta: float) -> void:
@@ -25,12 +29,16 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if is_waiting and randf() > 0.4:
-		is_waiting = false
+		toggle_is_waiting()
 	elif not is_waiting:
-		is_waiting = true		
+		toggle_is_waiting()
+
+func toggle_is_waiting() -> void:
+	is_waiting = not is_waiting
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
+		print("player captured")
 		player.is_captured_by_ghost = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
