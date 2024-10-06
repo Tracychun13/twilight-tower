@@ -9,9 +9,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player:
 		print("playerEntered")
 		player.toggle_can_attack()
-	if body == ghost:
-		print("ghost entered")
-		ghost.is_waiting = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

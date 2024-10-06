@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2ia8rh1mmtxd"]
+[gd_scene load_steps=7 format=3 uid="uid://d2ia8rh1mmtxd"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_sy2ur"]
 [ext_resource type="Texture2D" uid="uid://t1bnpq1lxl0" path="res://assets/ghost_assets/ghost.png" id="2_tlda2"]
@@ -25,11 +25,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jua3c"]
+height = 26.0
+
 [node name="Ghost" type="Node2D"]
 script = ExtResource("1_sy2ur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_ddfov")
 animation = &"idle"
 autoplay = "idle"
@@ -39,9 +41,9 @@ frame_progress = 0.309421
 collision_layer = 7
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-z_as_relative = false
-polygon = PackedVector2Array(-8, -14, -8, -6, 10, -6, 10, -14, 10, -22, 6, -28, -4, -28, -8, -23)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_jua3c")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

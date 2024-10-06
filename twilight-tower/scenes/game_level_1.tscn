@@ -518,13 +518,6 @@ position = Vector2(-246, -115)
 safe_margin = 2.0
 player = NodePath("../Player")
 
-[node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_ybydf")]
-visible = false
-position = Vector2(193, 115)
-player = NodePath("../Player")
-hole = NodePath("../hole")
-home = Vector2(220, 110)
-
 [node name="Player" parent="." instance=ExtResource("3_plep7")]
 z_index = 0
 position = Vector2(-233, 141)
@@ -545,6 +538,12 @@ scale = Vector2(2.125, 1.99219)
 player = NodePath("../Player")
 bat = NodePath("../Bat")
 ghost = NodePath("../Ghost")
+
+[node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_ybydf")]
+position = Vector2(193, 115)
+player = NodePath("../Player")
+hole = NodePath("../hole")
+home = Vector2(220, 110)
 
 [node name="Next_Level" type="Area2D" parent="."]
 position = Vector2(47, 50)
