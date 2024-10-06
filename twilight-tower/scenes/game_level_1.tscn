@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bylabuky10ay8"]
+[gd_scene load_steps=42 format=4 uid="uid://bylabuky10ay8"]
 
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment/tilemap.png" id="2_vs8ev"]
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/character.tscn" id="3_plep7"]
@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://d2ia8rh1mmtxd" path="res://scenes/ghost.tscn" id="7_ybydf"]
 [ext_resource type="Script" path="res://next_level_1.gd" id="8_ss6lk"]
 [ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="9_mmbuv"]
-[ext_resource type="Shader" path="res://shaders/invert_colors.gdshader" id="10_1owbk"]
-[ext_resource type="Texture2D" uid="uid://yhbfe0l1ogs4" path="res://assets/environment/LightSprite.png" id="11_b75ox"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ktwm2"]
 vertices = PackedVector2Array(-298, -161, 281.688, -161, 272.992, -160.977, 240.992, -160.922, 224.992, -160.898, 160.992, -160.781, 144.992, -160.758, 64.9922, -160.609, 48.9922, -160.594, 32.9922, -160.547, 16.9922, -160.523, 0.976562, -160.5, -15.0078, -160.469, -31.0078, -160.453, -47.0078, -160.406, -63.0078, -160.383, -79.0078, -160.359, -159.008, -160.211, -175.008, -160.188, -239.008, -160.07, -255.008, -160.047, -271.008, -160.023, -287.023, -159.992, -298, 181, -286.977, -149.977, -286.938, -133.977, -286.883, -117.977, -286.844, -101.992, -286.789, -85.9766, -286.727, -69.9766, -286.688, -53.9766, -286.633, -37.9766, -286.594, -21.9922, -286.539, -5.97656, -286.477, 10.0234, -286.438, 26.0078, -286.391, 42.0234, -286.039, 154.023, -285.977, 172, 300, 181, 282.953, 172, 300, -161, 283.117, 154.047, 283.273, 138.047, 283.406, 122.047, 283.57, 106.047, 284.023, 58.0469, 284.156, 42.0469, 284.906, -37.9531, 285.047, -53.9531, 285.797, -133.953, 285.953, -149.961, 286.039, -161, -106, -17, -106, -129, 76, -129, 22, 37, -20, 37, 134, 63, 134, -129, 268, -129, 268, 149, 22, 149, 76, 63, -20, 149, -266, 149, -148, -17, -266, -129, -148, -129)
@@ -499,9 +497,6 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_tbhou")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwwce"]
-shader = ExtResource("10_1owbk")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdh20"]
 size = Vector2(31, 25)
 
@@ -542,19 +537,12 @@ limit_right = 300
 limit_bottom = 185
 limit_smoothed = true
 
-[node name="LightSprite" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_uwwce")
-position = Vector2(-22, -48)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("11_b75ox")
-
-[node name="light" parent="LightSprite" node_paths=PackedStringArray("player", "bat", "ghost") instance=ExtResource("4_jcbiw")]
-position = Vector2(-0.399998, 7.62939e-06)
-scale = Vector2(0.425, 0.425)
-collision_mask = 6
-player = NodePath("../../Player")
-bat = NodePath("../../Bat")
-ghost = NodePath("../../Ghost")
+[node name="light" parent="." node_paths=PackedStringArray("player", "bat", "ghost") instance=ExtResource("4_jcbiw")]
+position = Vector2(-24, -52.75)
+scale = Vector2(2.125, 1.99219)
+player = NodePath("../Player")
+bat = NodePath("../Bat")
+ghost = NodePath("../Ghost")
 
 [node name="Next_Level" type="Area2D" parent="."]
 position = Vector2(47, 50)

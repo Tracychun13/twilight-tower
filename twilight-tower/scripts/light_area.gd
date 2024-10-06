@@ -1,4 +1,4 @@
-extends Area2D
+extends Sprite2D
 
 @export var player: CharacterBody2D
 @export var bat: CharacterBody2D
@@ -14,6 +14,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body == ghost:
 		print("ghost entered")
 		ghost.is_waiting = true
-
-
 		
