@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D;
 
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
@@ -9,6 +9,8 @@ var health = 100;
 var shieldHealth = 100;
 var is_shielding = false
 @onready var sprite2d = $AnimatedSprite2D
+@onready var bat = $"../Bat"
+@onready var collision = $CollisionPolygon2D
 
 func die():
 	sprite2d.play("die")
@@ -65,6 +67,10 @@ func playerDamaged(value):
 		sprite2d.play("hurt")
 	else:
 		die();
+func _on_body_entered(body: Node2D) -> void:
+	
+	playerDamaged(10)
+	print("damage 10")
 
 func _physics_process(_delta: float) -> void:
 	get_input()
