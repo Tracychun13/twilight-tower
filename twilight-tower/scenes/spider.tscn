@@ -73,11 +73,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_2bwjl")
 }],
 "loop": true,
-"name": &"default",
+"name": &"shoot",
 "speed": 5.0
 }]
 
-[node name="spider" type="Node2D"]
+[node name="Spider" type="Node2D"]
 script = ExtResource("1_chsok")
 
 [node name="Timer" type="Timer" parent="."]
@@ -93,7 +93,7 @@ shape = SubResource("CircleShape2D_07h2d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_u7srs")
-frame_progress = 0.195541
+animation = &"shoot"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="activation_region" to="." method="_on_activation_region_body_entered"]

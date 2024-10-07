@@ -546,7 +546,7 @@ player = NodePath("../Player")
 hole = NodePath("../hole")
 home = Vector2(220, 110)
 
-[node name="spider" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_ltl2o")]
+[node name="Spider" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_ltl2o")]
 position = Vector2(-29, 43)
 level_name = "Game_1"
 player = NodePath("../Player")

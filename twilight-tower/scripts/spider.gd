@@ -4,6 +4,7 @@ extends Node2D
 @export var player: CharacterBody2D
 @onready var main = get_tree().get_root().get_node(level_name)
 @onready var spit = load("res://scenes/web_spit.tscn")
+@onready var sprite2d = $AnimatedSprite2D
 var can_shoot = false
 
 func _ready() -> void:
@@ -16,6 +17,8 @@ func shoot_web() -> void:
 	web.spawn_position = self.position
 	web.player = player
 	main.add_child.call_deferred(web)
+	sprite2d.play("shoot")
+	
 
 func _process(delta: float) -> void:
 	look_at(player.position)
