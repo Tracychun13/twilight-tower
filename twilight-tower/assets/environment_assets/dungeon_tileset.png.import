@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yhbfe0l1ogs4"
-path="res://.godot/imported/LightSprite.png-46f385a5740947f024c536878726994f.ctex"
+uid="uid://yri20celxtpo"
+path="res://.godot/imported/dungeon_tileset.png-341c56cebef2de5d444ccdf18a54de5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/LightSprite.png"
-dest_files=["res://.godot/imported/LightSprite.png-46f385a5740947f024c536878726994f.ctex"]
+source_file="res://assets/environment_assets/dungeon_tileset.png"
+dest_files=["res://.godot/imported/dungeon_tileset.png-341c56cebef2de5d444ccdf18a54de5c.ctex"]
 
 [params]
 

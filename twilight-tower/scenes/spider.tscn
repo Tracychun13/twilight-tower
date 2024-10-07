@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://div3yomq2t70j"]
 
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_chsok"]
-[ext_resource type="Texture2D" uid="uid://bi86fdufd7x24" path="res://assets/spider/spider.png" id="1_xv6kq"]
+[ext_resource type="Texture2D" uid="uid://bi86fdufd7x24" path="res://assets/spider_assets/spider.png" id="1_xv6kq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07h2d"]
 radius = 112.071

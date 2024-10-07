@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://8bwf0msx55hc"]
 
-[ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment/tilemap.png" id="1_slnuk"]
+[ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_slnuk"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="2_rvxjj"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="3_l8l7u"]
 [ext_resource type="PackedScene" uid="uid://bkxva68b8o82j" path="res://scenes/bat.tscn" id="4_myj0u"]

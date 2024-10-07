@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cndebk628rpcc"]
 
 [ext_resource type="Script" path="res://scripts/hole.gd" id="1_ny108"]
-[ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment/tilemap.png" id="2_5eumw"]
+[ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="2_5eumw"]
 
 [sub_resource type="Animation" id="Animation_owh6s"]
 length = 0.001
