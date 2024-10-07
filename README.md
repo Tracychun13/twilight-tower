@@ -13,8 +13,9 @@
   - [ ] Player
     - [x] Walk
     - [x] Idle
-    - [ ] Shield
-    - [ ] Attack
-  - [ ] Spider
+    - [x] Shield
+    - [x] Attack
+    - [ ] Death
+  - [x] Spider
   - [x] Ghost
   - [x] Bat
