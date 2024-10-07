@@ -17,6 +17,7 @@ enum Level{
 }
 
 const levels = {
+	Level.LEVEL_MAIN:"res://scenes/game_level_main.tscn",
 	Level.LEVEL_ONE:"res://scenes/game_level_1.tscn",
 	Level.LEVEL_TWO:"res://scenes/game_level_2.tscn",
 	Level.LEVEL_THREE:"res://scenes/game_level_3.tscn",
@@ -39,5 +40,6 @@ func load_scene(scene: Level) -> void:
 	var new_scene = load(levels[scene])
 	add_child(new_scene.instantiate())
 
-func change_level(from: Level, to: Level) -> void:
-	pass
+func change_level():
+	current_level += 1
+	load_scene(current_level)
