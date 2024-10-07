@@ -17,17 +17,17 @@ enum Level{
 }
 
 const levels = {
-	Level.LEVEL_MAIN:"res://scenes/game_level_main.tscn",
-	Level.LEVEL_ONE:"res://scenes/game_level_1.tscn",
-	Level.LEVEL_TWO:"res://scenes/game_level_2.tscn",
-	Level.LEVEL_THREE:"res://scenes/game_level_3.tscn",
-	Level.LEVEL_FOUR:"res://scenes/game_level_4.tscn",
-	Level.LEVEL_FIVE:"res://scenes/game_level_5.tscn",
-	Level.LEVEL_SIX:"res://scenes/game_level_6.tscn",
-	Level.LEVEL_SEVEN:"res://scenes/game_level_7.tscn",
-	Level.LEVEL_EIGHT:"res://scenes/game_level_8.tscn",
-	Level.LEVEL_NINE:"res://scenes/game_level_9.tscn",
-	Level.LEVEL_TEN:"res://scenes/game_level_10.tscn",
+	Level.LEVEL_MAIN:"res://scenes/level_main.tscn",
+	Level.LEVEL_ONE:"res://scenes/level_1.tscn",
+	Level.LEVEL_TWO:"res://scenes/level_2.tscn",
+	Level.LEVEL_THREE:"res://scenes/level_3.tscn",
+	Level.LEVEL_FOUR:"res://scenes/level_4.tscn",
+	Level.LEVEL_FIVE:"res://scenes/level_5.tscn",
+	Level.LEVEL_SIX:"res://scenes/level_6.tscn",
+	Level.LEVEL_SEVEN:"res://scenes/level_7.tscn",
+	Level.LEVEL_EIGHT:"res://scenes/level_8.tscn",
+	Level.LEVEL_NINE:"res://scenes/level_9.tscn",
+	Level.LEVEL_TEN:"res://scenes/level_10.tscn",
 	
 }
 
@@ -35,11 +35,13 @@ func _ready() -> void:
 	load_scene(current_level)
 	
 func load_scene(scene: Level) -> void:
-	var new_scene = await load(levels[scene])
+	var new_scene = load(levels[scene])
 	if curr_scene:
 		curr_scene.queue_free()
 	curr_scene = new_scene.instantiate()
-	get_tree().root.add_child.call_deferred(curr_scene)
+	get_tree().root.get_child(1).add_child.call_deferred(curr_scene)
+	print(get_tree_string_pretty())
+	print(get_tree().root.get_child(1).get_children())
 
 func change_level():
 	current_level += 1

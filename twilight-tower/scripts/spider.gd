@@ -12,11 +12,11 @@ func shoot_web() -> void:
 	web.direction = (global_position-player.position).normalized()
 	web.spawn_position = self.position
 	web.player = player
-	SceneMgmt.curr_scene.root.add_child.call_deferred(web)
+	get_tree().current_scene.get_child(0).add_child.call_deferred(web)
 	sprite2d.play("shoot")
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	look_at(player.position)
 
 
