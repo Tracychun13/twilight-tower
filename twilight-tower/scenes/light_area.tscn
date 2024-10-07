@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://kpuvt45selag"]
+[gd_scene load_steps=7 format=3 uid="uid://kpuvt45selag"]
 
 [ext_resource type="Script" path="res://scripts/light_area.gd" id="1_s5xwa"]
 [ext_resource type="Shader" path="res://shaders/invert_colors.gdshader" id="2_h5bw8"]
@@ -8,18 +8,28 @@
 shader = ExtResource("2_h5bw8")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd25a"]
-radius = 28.1603
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh1ba"]
+radius = 29.4109
 
 [node name="light" type="Sprite2D"]
 material = SubResource("ShaderMaterial_d1nbr")
 texture = ExtResource("3_0xsfa")
 script = ExtResource("1_s5xwa")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Attacking Range" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attacking Range"]
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_kd25a")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="GhostBarrier" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GhostBarrier"]
+shape = SubResource("CircleShape2D_rh1ba")
+
+[connection signal="body_entered" from="Attacking Range" to="." method="_on_attacking_range_body_entered"]
+[connection signal="body_exited" from="Attacking Range" to="." method="_on_attacking_range_body_exited"]
+[connection signal="area_entered" from="GhostBarrier" to="." method="_on_ghost_barrier_area_entered"]
