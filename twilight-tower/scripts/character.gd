@@ -5,6 +5,7 @@ const ZERO_VEC = Vector2(0.0, 0.0)
 var ghost_drag_vector = Vector2(0.0, 0.0)
 var is_attacking = false
 var can_attack = false
+var is_detained = false
 var is_captured_by_ghost = false
 var health = 100;
 var shieldHealth = 100;
@@ -59,9 +60,15 @@ func get_input():
 	else:
 		velocity = ZERO_VEC
 
+'''
+Handles the event of the player getting shot by a web shot
+'''
+func shot_by_web() -> void:
+	print("got shot")
+	#is_detained = true
+
 # when bat hits the player call this
 func playerDamaged(value):
-	
 	if(is_shielding and shieldHealth > 0):
 		shieldHealth -= value
 		print(shieldHealth)
@@ -69,7 +76,7 @@ func playerDamaged(value):
 		health -= value
 		print(health)
 		if(health == 0):
-			die();
+			die()
 		sprite2d.play("hurt")
 	else:
 		die();
