@@ -2,7 +2,7 @@ extends Node2D
 
 @export var level_name: String
 @export var player: CharacterBody2D
-@onready var main = get_tree().get_root().get_node(level_name)
+@onready var main = get_tree().get_current_scene()
 @onready var spit = load("res://scenes/web_spit.tscn")
 @onready var sprite2d = $AnimatedSprite2D
 var can_shoot = false

@@ -522,7 +522,6 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("3_plep7")]
 z_index = 0
 position = Vector2(-233, 141)
-collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -11)
@@ -551,13 +550,14 @@ position = Vector2(-29, 43)
 level_name = "Game_1"
 player = NodePath("../Player")
 
-[node name="Next_Level" type="Area2D" parent="."]
+[node name="Next_Level" type="Area2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(47, 50)
 collision_mask = 2
 script = ExtResource("8_ss6lk")
+player = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Level"]
-position = Vector2(194, -220)
+position = Vector2(194, -215)
 shape = SubResource("RectangleShape2D_gdh20")
 
 [node name="BackgroundScore" parent="." instance=ExtResource("9_mmbuv")]
