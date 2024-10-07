@@ -2,6 +2,7 @@ extends CharacterBody2D;
 
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
+const spamGoal = 100;
 var ghost_drag_vector = Vector2(0.0, 0.0)
 var is_attacking = false
 var can_attack = false
@@ -10,6 +11,8 @@ var is_captured_by_ghost = false
 var health = 100;
 var shieldHealth = 100;
 var is_shielding = false
+var spamCounter = 0;
+@onready var timer = $Timer
 @onready var sprite2d = $AnimatedSprite2D
 @onready var bat = $"../Bat"
 @onready var collision = $CollisionPolygon2D
@@ -29,7 +32,10 @@ func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	input_direction.normalized()
 	velocity = input_direction*SPEED
-	
+	if is_detained:
+		if Input.is_action_just_pressed("detained"):
+			timer.start()
+			detained_spamming()
 	if Input.is_action_pressed("attack") and can_attack and not is_detained:
 		is_shielding = false;
 		is_attacking = true
@@ -92,7 +98,14 @@ func playerDamaged(value):
 		sprite2d.play("hurt")
 	else:
 		die();
-
+func detained_spamming() -> void:
+	spamCounter+= 10;
+	print(spamCounter);
+	if(spamCounter == spamGoal):
+		timer.stop()
+		print("player is free")
+		is_detained = false
+		spamCounter = 0
 func _physics_process(_delta: float) -> void:
 	get_input()
 	if is_captured_by_ghost:
@@ -101,3 +114,7 @@ func _physics_process(_delta: float) -> void:
 		sprite2d.play("detained")
 		
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	spamCounter = 0

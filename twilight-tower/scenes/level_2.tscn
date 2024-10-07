@@ -409,6 +409,7 @@ position = Vector2(-83, -86)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("5_r4cen")]
+z_index = 0
 position = Vector2(-233, 141)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -421,6 +422,8 @@ limit_bottom = 185
 limit_smoothed = true
 
 [node name="light" parent="." node_paths=PackedStringArray("player", "bat") instance=ExtResource("2_rvxjj")]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(78.22, 97.5)
 scale = Vector2(1.89938, 1.82812)
 player = NodePath("../Player")
