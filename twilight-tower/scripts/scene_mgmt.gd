@@ -1,7 +1,7 @@
 extends Node
 
-var current_level = 0
-
+var current_level = 1
+var curr_scene: Node2D = null
 enum Level{
 	LEVEL_MAIN=0,
 	LEVEL_ONE=1,
@@ -32,14 +32,16 @@ const levels = {
 }
 
 func _ready() -> void:
-	load_scene(Level.LEVEL_ONE)
+	load_scene(current_level)
 	
 func load_scene(scene: Level) -> void:
-	if get_child_count():
-		get_child(0).queue_free()
-	var new_scene = load(levels[scene])
-	add_child(new_scene.instantiate())
+	var new_scene = await load(levels[scene])
+	if curr_scene:
+		curr_scene.queue_free()
+	curr_scene = new_scene.instantiate()
+	get_tree().root.add_child.call_deferred(curr_scene)
 
 func change_level():
 	current_level += 1
+	print("switching to level ", current_level)
 	load_scene(current_level)
