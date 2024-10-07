@@ -19,7 +19,7 @@ func die():
 	set_physics_process(false)
 	set_process_input(false)
 	await sprite2d.animation_finished
-	get_tree().reload_current_scene()
+	SceneMgmt.load_scene(SceneMgmt.current_level)
 	#once dead call ending scene
 
 func toggle_can_attack():

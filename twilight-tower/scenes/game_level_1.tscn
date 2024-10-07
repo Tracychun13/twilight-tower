@@ -498,7 +498,7 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_tbhou")
 
-[node name="Game_1" type="Node2D"]
+[node name="Game_1" type="Node"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ktwm2")
@@ -542,6 +542,7 @@ ghost = NodePath("../Ghost")
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_ybydf")]
 position = Vector2(193, 115)
+debugEnable = true
 player = NodePath("../Player")
 hole = NodePath("../hole")
 home = Vector2(220, 110)

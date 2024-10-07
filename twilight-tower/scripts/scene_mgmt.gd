@@ -1,7 +1,7 @@
 extends Node
 
 var current_level = 1
-var curr_scene: Node2D = null
+var curr_scene: Node = null
 enum Level{
 	LEVEL_MAIN=0,
 	LEVEL_ONE=1,
