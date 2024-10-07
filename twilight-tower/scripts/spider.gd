@@ -30,6 +30,7 @@ func _on_activation_region_body_entered(body: Node2D) -> void:
 
 func _on_activation_region_body_exited(body: Node2D) -> void:
 	if body == player:
+		shoot_web()
 		can_shoot = false
 
 
