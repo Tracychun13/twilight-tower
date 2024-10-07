@@ -14,5 +14,5 @@ func _on_attacking_range_body_exited(body: Node2D) -> void:
 
 func _on_ghost_barrier_area_entered(area: Area2D) -> void:
 	pass
-	#if area == ghost.area_ref:
-		#ghost.toggle_is_waiting()
+	if area == ghost.area_ref:
+		ghost.toggle_is_waiting()
