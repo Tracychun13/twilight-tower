@@ -550,7 +550,6 @@ home = Vector2(220, 110)
 
 [node name="Spider" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_uwcfx")]
 position = Vector2(-143, -16)
-debug_enable = true
 player = NodePath("../Player")
 
 [node name="BackgroundScore" parent="." instance=ExtResource("9_o5lnn")]

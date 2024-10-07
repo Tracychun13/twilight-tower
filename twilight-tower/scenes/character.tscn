@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cepqnlk6am0fb"]
+[gd_scene load_steps=61 format=3 uid="uid://cepqnlk6am0fb"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_051no"]
 [ext_resource type="Texture2D" uid="uid://va7hdc0i35wi" path="res://assets/hero_sprite/Death.png" id="2_6c310"]
@@ -118,6 +118,10 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_s84xm"]
 atlas = ExtResource("6_0r2id")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyo4y"]
+atlas = ExtResource("6_0r2id")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i74c"]
 atlas = ExtResource("6_0r2id")
@@ -333,6 +337,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_kyo4y")
+}],
+"loop": true,
+"name": &"shieldingIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4i74c")
 }, {
 "duration": 1.0,
@@ -432,7 +444,7 @@ script = ExtResource("1_051no")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -20)
 sprite_frames = SubResource("SpriteFrames_oldj6")
-animation = &"shieldingRight"
+animation = &"shieldingIdle"
 autoplay = "idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
