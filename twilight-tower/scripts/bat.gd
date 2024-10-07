@@ -8,10 +8,17 @@ var damager = 10
 var isPlayerTouching = false;
 var time_since_last_damage: float = 0.0
 var damage_interval = 1.0
+@export var debug_enable: bool
 @export var player: CharacterBody2D
 @onready var nav_agent:= $NavigationAgent2D as NavigationAgent2D
 @onready var timer = $Timer
 @onready var playerScript = $"../Player"
+
+
+
+func _ready() -> void:
+	if debug_enable:
+		set_process(false)
 
 func _physics_process(_delta: float) -> void:
 	if(playerEnteredRange):

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var debugEnable: bool
+@export var debug_enable: bool
 @export var player: CharacterBody2D
 @export var hole: Area2D
 @export var home: Vector2
@@ -15,7 +15,7 @@ var has_grabbed = false
 func _ready() -> void:
 	area_ref = $Area2D
 	ghost_timer = $Timer
-	if debugEnable:
+	if debug_enable:
 		set_process(false)
 	else:
 		set_process(true)

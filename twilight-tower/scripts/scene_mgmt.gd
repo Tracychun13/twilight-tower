@@ -40,8 +40,6 @@ func load_scene(scene: Level) -> void:
 		curr_scene.queue_free()
 	curr_scene = new_scene.instantiate()
 	get_tree().root.get_child(1).add_child.call_deferred(curr_scene)
-	print(get_tree_string_pretty())
-	print(get_tree().root.get_child(1).get_children())
 
 func change_level():
 	current_level += 1

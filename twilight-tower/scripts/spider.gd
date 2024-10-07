@@ -1,11 +1,14 @@
 extends Node2D
 
-@export var level_name: String
+@export var debug_enable: bool
 @export var player: CharacterBody2D
 @onready var spit = load("res://scenes/web_spit.tscn")
 @onready var sprite2d = $AnimatedSprite2D
 var can_shoot = false
 
+func _ready() -> void:
+	if debug_enable:
+		set_process(false)
 
 func shoot_web() -> void:
 	var web = spit.instantiate()

@@ -19,13 +19,12 @@ texture = ExtResource("3_0xsfa")
 script = ExtResource("1_s5xwa")
 
 [node name="Attacking Range" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attacking Range"]
-position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_kd25a")
 
 [node name="GhostBarrier" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GhostBarrier"]
 shape = SubResource("CircleShape2D_rh1ba")

@@ -86,7 +86,7 @@ autostart = true
 
 [node name="activation_region" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="activation_region"]
 shape = SubResource("CircleShape2D_07h2d")

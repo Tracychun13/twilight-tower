@@ -518,6 +518,7 @@ position = Vector2(213, 113)
 [node name="Bat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_yt32i")]
 position = Vector2(-252, -122)
 safe_margin = 2.0
+debug_enable = true
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("5_1h8cl")]
@@ -542,14 +543,14 @@ ghost = NodePath("../Ghost")
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_4hq4i")]
 position = Vector2(193, 115)
-debugEnable = true
+debug_enable = true
 player = NodePath("../Player")
 hole = NodePath("../hole")
 home = Vector2(220, 110)
 
 [node name="Spider" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_uwcfx")]
-position = Vector2(-123, -18)
-level_name = "Game_1"
+position = Vector2(-143, -16)
+debug_enable = true
 player = NodePath("../Player")
 
 [node name="BackgroundScore" parent="." instance=ExtResource("9_o5lnn")]

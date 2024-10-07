@@ -1,8 +1,13 @@
 extends Sprite2D
 
+@export var debugEnable: bool
 @export var player: CharacterBody2D
 @export var bat: CharacterBody2D
 @export var ghost: Node2D = null
+
+func _ready() -> void:
+	if debugEnable:
+		set_process(false)
 
 func _on_attacking_range_body_entered(body: Node2D) -> void:
 	if body == player:
