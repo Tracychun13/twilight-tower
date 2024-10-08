@@ -13,9 +13,9 @@ var spamCounter = 0
 var is_shielding = false
 var is_attacking = false
 var landedHit = false
-var sprite_flipped
 var time_since_last_damage: float = 0.0
 var damage_interval = 0.5
+@onready var player_root = $"."
 @onready var timer = $Timer
 @onready var sprite2d = $AnimatedSprite2D
 @onready var bat = $"../Bat"

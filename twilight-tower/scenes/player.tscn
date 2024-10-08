@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bxmr6ikkijfjs" path="res://assets/player_assets/PlayerWalking.png" id="5_57abx"]
 [ext_resource type="Texture2D" uid="uid://fn8x6cw42s7c" path="res://assets/player_assets/Shield.png" id="6_0r2id"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7fjv"]
+radius = 9.0
+height = 32.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugfbu"]
 atlas = ExtResource("2_falw8")
 region = Rect2(3, 0, 32, 32)
@@ -436,10 +440,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7fjv"]
-radius = 9.0
-height = 32.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_no7jp"]
 size = Vector2(8.4853, 19.5837)
 
@@ -447,6 +447,10 @@ size = Vector2(8.4853, 19.5837)
 z_index = 4
 collision_layer = 3
 script = ExtResource("1_051no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -19)
+shape = SubResource("CapsuleShape2D_n7fjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)
@@ -456,20 +460,17 @@ autoplay = "idle"
 frame = 5
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -19)
-shape = SubResource("CapsuleShape2D_n7fjv")
+[node name="AttackingHitbox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 19)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.15
-one_shot = true
-
-[node name="AttackingHitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackingHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackingHitbox"]
 position = Vector2(7.64465, -14.5259)
 rotation = -2.25513
 shape = SubResource("RectangleShape2D_no7jp")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="AttackingHitbox" to="." method="_on_attacking_hitbox_body_entered"]

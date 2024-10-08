@@ -28,7 +28,6 @@ const levels = {
 	Level.LEVEL_EIGHT:"res://scenes/level_8.tscn",
 	Level.LEVEL_NINE:"res://scenes/level_9.tscn",
 	Level.LEVEL_TEN:"res://scenes/level_10.tscn",
-	
 }
 
 func _ready() -> void:
