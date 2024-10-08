@@ -441,6 +441,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynu8h"]
+size = Vector2(20, 22)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
@@ -461,12 +462,17 @@ frame_progress = 1.0
 [node name="AttackingHitbox" type="Area2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackingHitbox"]
-position = Vector2(11, 3)
+position = Vector2(11, 4)
 shape = SubResource("RectangleShape2D_ynu8h")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="SpamTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 
 [connection signal="body_entered" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_exited" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="SpamTimer" to="." method="_on_timer_timeout"]
