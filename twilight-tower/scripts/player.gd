@@ -40,13 +40,12 @@ func get_input():
 		if Input.is_action_just_pressed("detained"):
 			timer.start()
 			detained_spamming()
-	if Input.is_action_just_pressed("attack") and can_attack and not is_detained:
+	is_attacking = false
+	if Input.is_action_pressed("attack") and can_attack and not is_detained:
 		is_shielding = false;
 		is_attacking = true
 		sprite2d.play("attack")
 		await sprite2d.animation_finished
-		is_attacking = false
-	
 	if Input.is_action_pressed("shield") and not is_detained:
 		is_shielding = true;
 	else:
@@ -118,6 +117,7 @@ func _physics_process(_delta: float) -> void:
 	get_input()
 	if is_captured_by_ghost:
 		velocity = ghost_drag_vector
+
 	if(is_detained):
 		sprite2d.play("detained")
 	move_and_slide()
@@ -128,9 +128,11 @@ func _on_timer_timeout() -> void:
 
 
 func _on_attacking_hitbox_body_entered(body: Node2D) -> void:
-	if body == bat and is_attacking:
+	if body == bat:
 		landedHit = true;
-		if(bat.isAlive):
-			bat.batDamaged(20)
+		print(is_attacking)
+		if bat.isAlive and is_attacking:
+			bat.batDamaged(50)
+		
 	else:
 		landedHit = false
