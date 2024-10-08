@@ -16,6 +16,20 @@ enum Level{
 	LEVEL_TEN=10,
 }
 
+const id_to_level = {
+	0:Level.LEVEL_MAIN,
+	1:Level.LEVEL_ONE, 
+	2:Level.LEVEL_TWO, 
+	3:Level.LEVEL_THREE,
+	4:Level.LEVEL_FOUR,
+	5:Level.LEVEL_FIVE,
+	6:Level.LEVEL_SIX,
+	7:Level.LEVEL_SEVEN,
+	8:Level.LEVEL_EIGHT,
+	9:Level.LEVEL_NINE,
+	10:Level.LEVEL_TEN
+}
+
 const levels = {
 	Level.LEVEL_MAIN:"res://scenes/level_main.tscn",
 	Level.LEVEL_ONE:"res://scenes/level_1.tscn",
@@ -32,7 +46,7 @@ const levels = {
 
 func _ready() -> void:
 	load_scene(current_level)
-	
+
 func load_scene(scene: Level) -> void:
 	var new_scene = load(levels[scene])
 	if curr_scene:
@@ -40,6 +54,12 @@ func load_scene(scene: Level) -> void:
 	curr_scene = new_scene.instantiate()
 	get_tree().root.get_child(1).add_child.call_deferred(curr_scene)
 
+func go_to_level(levelId: int):
+	#if levelId == current_level and levelId > 1:
+		#levelId -= 1
+	var targetLevel = id_to_level[levelId]
+	load_scene(targetLevel)
+	
 func change_level():
 	current_level += 1
 	print("switching to level ", current_level)
