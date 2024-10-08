@@ -13,7 +13,7 @@ var isAlive = true
 @onready var nav_agent:= $NavigationAgent2D as NavigationAgent2D
 @onready var timer = $Timer
 @onready var playerScript = $"../Player"
-
+@onready var bat_audio = $AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -49,7 +49,8 @@ func batDamaged(value) -> void:
 #Enter the range bat will start chasing
 func _on_range_entered(body: Node2D) -> void:
 	if(body == player):
-		playerEnteredRange = true;
+		playerEnteredRange = true
+		bat_audio.play()
 		print("player is in bat range, Bat will follow!")
 
 
@@ -58,6 +59,7 @@ func _on_collision_area_entered(body: Node2D) -> void:
 	if(body == player):
 		print("Player entered damage area")
 		isPlayerTouching = true
+		bat_audio.play()
 		playerScript.playerDamaged(10)
 		time_since_last_damage = 0.0
 
