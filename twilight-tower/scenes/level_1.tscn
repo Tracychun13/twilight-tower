@@ -515,6 +515,7 @@ position = Vector2(-68, 117)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("5_1h8cl")]
+z_index = 0
 position = Vector2(-238, -113)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
