@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 50.0
 var health = 100.0
 var playerEnteredRange = false
@@ -8,6 +7,7 @@ var damager = 10
 var isPlayerTouching = false;
 var time_since_last_damage: float = 0.0
 var damage_interval = 1.0
+var isAlive = true;
 @export var debug_enable: bool
 @export var player: CharacterBody2D
 @onready var nav_agent:= $NavigationAgent2D as NavigationAgent2D
@@ -26,11 +26,13 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * SPEED
 		move_and_slide()
 	if(isPlayerTouching):
-		time_since_last_damage += _delta
 		if(time_since_last_damage >= damage_interval):
 			playerScript.playerDamaged(10)
 			print("Damaging player")
 			time_since_last_damage = 0.0
+		time_since_last_damage += _delta
+	if(health == 0):
+		self.queue_free()
 
 func find_hero() -> void:
 	nav_agent.target_position = player.global_position
@@ -38,13 +40,18 @@ func find_hero() -> void:
 func _on_timer_timeout() -> void:
 	find_hero()
 
+func batDamaged(value) -> void:
+	if health > 0 and not health==0:
+		health-= value
+		print("BAT HEALTH: ", health)
+	
+#Enter the range bat will start chasing
 func _on_range_entered(body: Node2D) -> void:
 	if(body == player):
 		playerEnteredRange = true;
-		print("player is in bat range")
+		print("player is in bat range, Bat will follow!")
 
-
-
+#something collided with bat
 func _on_collision_area_entered(body: Node2D) -> void:
 	if(body == player):
 		print("Player entered damage area")

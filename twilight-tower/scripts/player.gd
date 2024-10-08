@@ -2,20 +2,24 @@ extends CharacterBody2D;
 
 const SPEED = 80.0
 const ZERO_VEC = Vector2(0.0, 0.0)
-const spamGoal = 100;
+const spamGoal = 100
 var ghost_drag_vector = Vector2(0.0, 0.0)
-var is_attacking = false
 var can_attack = false
 var is_detained = false
 var is_captured_by_ghost = false
-var health = 100;
-var shieldHealth = 100;
+var health = 100
+var shieldHealth = 100
+var spamCounter = 0
 var is_shielding = false
-var spamCounter = 0;
+var is_attacking = false
+var landedHit = false
+var sprite_flipped
+var time_since_last_damage: float = 0.0
+var damage_interval = 0.5
 @onready var timer = $Timer
 @onready var sprite2d = $AnimatedSprite2D
 @onready var bat = $"../Bat"
-@onready var collision = $CollisionPolygon2D
+@onready var collision = $CollisionShape2D
 
 func die():
 	sprite2d.play("die")
@@ -36,14 +40,14 @@ func get_input():
 		if Input.is_action_just_pressed("detained"):
 			timer.start()
 			detained_spamming()
-	if Input.is_action_pressed("attack") and can_attack and not is_detained:
+	if Input.is_action_just_pressed("attack") and can_attack and not is_detained:
 		is_shielding = false;
 		is_attacking = true
 		sprite2d.play("attack")
 		await sprite2d.animation_finished
 		is_attacking = false
 	
-	if Input.is_action_pressed("shield"):
+	if Input.is_action_pressed("shield") and not is_detained:
 		is_shielding = true;
 	else:
 		is_shielding = false;
@@ -87,17 +91,18 @@ func shot_by_web() -> void:
 
 # when bat hits the player call this
 func playerDamaged(value):
+	sprite2d.play("hurt")
 	if(is_shielding and shieldHealth > 0):
 		shieldHealth -= value
-		print(shieldHealth)
+		print("Shield Health: ", shieldHealth)
 	elif(health > 0):
 		health -= value
-		print(health)
+		print("Health: ", health)
 		if(health == 0):
 			die()
-		sprite2d.play("hurt")
 	else:
 		die();
+
 func detained_spamming() -> void:
 	spamCounter+= 10;
 	print(spamCounter);
@@ -106,15 +111,25 @@ func detained_spamming() -> void:
 		print("player is free")
 		is_detained = false
 		spamCounter = 0
+
+
 func _physics_process(_delta: float) -> void:
 	get_input()
 	if is_captured_by_ghost:
 		velocity = ghost_drag_vector
 	if(is_detained):
 		sprite2d.play("detained")
-		
 	move_and_slide()
 
 
 func _on_timer_timeout() -> void:
 	spamCounter = 0
+
+
+func _on_attacking_hitbox_body_entered(body: Node2D) -> void:
+	if body == bat and is_attacking:
+		landedHit = true;
+		if(bat.isAlive):
+			bat.batDamaged(20)
+	else:
+		landedHit = false
