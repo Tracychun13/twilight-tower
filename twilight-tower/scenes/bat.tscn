@@ -81,7 +81,6 @@ target_desired_distance = 21.0
 shape = SubResource("CircleShape2D_1qupw")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="Range" type="Area2D" parent="."]

@@ -440,8 +440,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_no7jp"]
-size = Vector2(8.4853, 19.5837)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynu8h"]
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
@@ -449,11 +448,10 @@ collision_layer = 3
 script = ExtResource("1_051no")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -19)
+position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_n7fjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_oldj6")
 animation = &"attack"
 autoplay = "idle"
@@ -461,12 +459,10 @@ frame = 5
 frame_progress = 1.0
 
 [node name="AttackingHitbox" type="Area2D" parent="AnimatedSprite2D"]
-position = Vector2(0, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/AttackingHitbox"]
-position = Vector2(7.64465, -14.5259)
-rotation = -2.25513
-shape = SubResource("RectangleShape2D_no7jp")
+position = Vector2(11, 3)
+shape = SubResource("RectangleShape2D_ynu8h")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

@@ -54,14 +54,14 @@ func get_input():
 	if not is_attacking and not is_detained:
 		
 		if Input.is_action_pressed("left"):
-			sprite2d.flip_h = true
+			sprite2d.scale.x = -1
 			if(is_shielding):
 				sprite2d.play("shieldingRight")
 			else:
 				sprite2d.play("walkRight")
 			
 		elif Input.is_action_pressed("right"):
-			sprite2d.flip_h = false
+			sprite2d.scale.x = 1
 			if(is_shielding):
 				sprite2d.play("shieldingRight")
 			else:
@@ -75,6 +75,7 @@ func get_input():
 		elif Input.is_action_pressed("up"):
 			sprite2d.play("walkBackward")
 		else:
+			sprite2d.scale.x = 1
 			if(is_shielding):
 				sprite2d.play("shieldingIdle")
 			else: 

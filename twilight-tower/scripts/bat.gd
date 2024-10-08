@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 50.0
-var health = 100.0
+var health = 100
 var playerEnteredRange = false
 var damager = 10
 var isPlayerTouching = false;
@@ -41,7 +41,7 @@ func _on_timer_timeout() -> void:
 	find_hero()
 
 func batDamaged(value) -> void:
-	if health > 0 and not health==0:
+	if health > 0:
 		health-= value
 		print("BAT HEALTH: ", health)
 	
