@@ -7,10 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bxmr6ikkijfjs" path="res://assets/player_assets/PlayerWalking.png" id="5_57abx"]
 [ext_resource type="Texture2D" uid="uid://fn8x6cw42s7c" path="res://assets/player_assets/Shield.png" id="6_0r2id"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7fjv"]
-radius = 9.0
-height = 32.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugfbu"]
 atlas = ExtResource("2_falw8")
 region = Rect2(3, 0, 32, 32)
@@ -443,14 +439,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ynu8h"]
 size = Vector2(20, 22)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7fjv"]
+radius = 9.0
+height = 28.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
 collision_layer = 3
 script = ExtResource("1_051no")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("CapsuleShape2D_n7fjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oldj6")
@@ -471,6 +467,10 @@ wait_time = 0.5
 [node name="SpamTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("CapsuleShape2D_n7fjv")
 
 [connection signal="body_entered" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_entered"]
 [connection signal="body_exited" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_exited"]

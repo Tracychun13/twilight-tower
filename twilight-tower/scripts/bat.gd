@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 50.0
+const SPEED = 60.0
 var health = 100
 var playerEnteredRange = false
 var damager = 10

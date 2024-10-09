@@ -1,6 +1,6 @@
 extends CharacterBody2D;
 
-const SPEED = 80.0
+var SPEED = 75.0
 const ZERO_VEC = Vector2(0.0, 0.0)
 const spamGoal = 100
 var ghost_drag_vector = Vector2(0.0, 0.0)
@@ -17,12 +17,16 @@ var can_move = true
 var can_attack_again = true
 var time_since_last_damage: float = 0.0
 var damage_interval = 0.5
+@export var speed_multiplier: float = 1.0
 @onready var player_root = $"."
 @onready var timer = $SpamTimer
 @onready var attack_timer = $AttackTimer
 @onready var sprite2d = $AnimatedSprite2D
 @onready var bat = $"../Bat"
 @onready var collision = $CollisionShape2D
+
+func _ready() -> void:
+	SPEED *= speed_multiplier
 
 func die():
 	sprite2d.play("die")
