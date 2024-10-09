@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://div3yomq2t70j"]
+[gd_scene load_steps=15 format=3 uid="uid://div3yomq2t70j"]
 
 [ext_resource type="Script" path="res://scripts/spider.gd" id="1_chsok"]
 [ext_resource type="Texture2D" uid="uid://bi86fdufd7x24" path="res://assets/spider_assets/spider.png" id="1_xv6kq"]
+[ext_resource type="AudioStream" uid="uid://duqjoals1fx3g" path="res://assets/audio/spider.wav" id="3_j6rbr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07h2d"]
 radius = 112.071
@@ -95,6 +96,10 @@ shape = SubResource("CircleShape2D_07h2d")
 rotation = 4.71239
 sprite_frames = SubResource("SpriteFrames_u7srs")
 animation = &"shoot"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j6rbr")
+volume_db = -10.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="activation_region" to="." method="_on_activation_region_body_entered"]

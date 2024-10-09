@@ -4,6 +4,7 @@ extends Node2D
 @export var player: CharacterBody2D
 @onready var spit = load("res://scenes/web_spit.tscn")
 @onready var sprite2d = $AnimatedSprite2D
+@onready var spider_sound = $AudioStreamPlayer2D
 var can_shoot = false
 
 func _ready() -> void:
@@ -16,6 +17,7 @@ func shoot_web() -> void:
 	web.spawn_position = self.position
 	web.player = player
 	get_tree().current_scene.get_child(0).add_child.call_deferred(web)
+	spider_sound.play()
 	sprite2d.play("shoot")
 	
 

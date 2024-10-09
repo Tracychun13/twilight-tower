@@ -4,6 +4,7 @@ extends Node2D
 @export var player: CharacterBody2D
 @export var hole: Area2D
 @export var home: Vector2
+@onready var ghost_sound = $AudioStreamPlayer2D
 var area_ref: Area2D
 var ghost_timer: Timer
 var velocity = Vector2()
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if is_waiting and randf() > 0.4:
+		ghost_sound.play()
 		toggle_is_waiting()
 	elif not is_waiting:
 		toggle_is_waiting()
