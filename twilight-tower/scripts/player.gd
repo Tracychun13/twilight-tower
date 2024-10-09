@@ -17,6 +17,7 @@ var can_move = true
 var can_attack_again = true
 var time_since_last_damage: float = 0.0
 var damage_interval = 0.5
+var can_take_damage = false
 @export var speed_multiplier: float = 1.0
 @onready var player_root = $"."
 @onready var timer = $SpamTimer
@@ -130,7 +131,8 @@ func _physics_process(_delta: float) -> void:
 		get_input()
 	if is_captured_by_ghost:
 		velocity = ghost_drag_vector
-
+	if bat_is_in_hitbox and can_take_damage:
+		playerDamaged(10)
 	if(is_detained):
 		sprite2d.play("detained")
 	move_and_slide()

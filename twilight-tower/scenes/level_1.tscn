@@ -500,7 +500,6 @@ sources/0 = SubResource("TileSetAtlasSource_dpfv0")
 [node name="Level1" type="Node"]
 
 [node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_3lmmv")]
-visible = false
 player = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]

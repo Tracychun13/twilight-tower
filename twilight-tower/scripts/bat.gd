@@ -30,8 +30,11 @@ func _physics_process(_delta: float) -> void:
 	if(isPlayerTouching):
 		if(time_since_last_damage >= damage_interval):
 			#playerScript.playerDamaged(10)
+			playerScript.can_take_damage = true
 			print("Damaging player")
 			time_since_last_damage = 0.0
+		else:
+			playerScript.can_take_damage = false
 		time_since_last_damage += _delta
 	if(health == 0):
 		self.queue_free()
@@ -63,7 +66,7 @@ func _on_collision_area_entered(body: Node2D) -> void:
 		print("Player entered damage area")
 		isPlayerTouching = true
 		bat_audio.play()
-		playerScript.playerDamaged(10)
+		#playerScript.playerDamaged(10)
 		time_since_last_damage = 0.0
 
 
