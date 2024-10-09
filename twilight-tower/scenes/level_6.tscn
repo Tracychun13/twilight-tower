@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=4 uid="uid://dxo00dyu1oxa4"]
+[gd_scene load_steps=39 format=4 uid="uid://dxo00dyu1oxa4"]
 
+[ext_resource type="PackedScene" uid="uid://fr7v2vl60rmy" path="res://scenes/hud.tscn" id="1_e8t5a"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_uqqgp"]
 [ext_resource type="PackedScene" uid="uid://div3yomq2t70j" path="res://scenes/spider.tscn" id="2_d034f"]
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="3_480sj"]
@@ -496,6 +497,9 @@ sources/0 = SubResource("TileSetAtlasSource_1t0jo")
 
 [node name="Level6" type="Node"]
 
+[node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_e8t5a")]
+player = NodePath("../Player")
+
 [node name="BackgroundScore" parent="." instance=ExtResource("5_lwoir")]
 position = Vector2(-65, -62)
 scale = Vector2(2.63281, 2.58594)
@@ -520,7 +524,7 @@ position = Vector2(-240, 128)
 position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 limit_left = -300
-limit_top = -165
+limit_top = -185
 limit_right = 300
 limit_bottom = 185
 limit_smoothed = true

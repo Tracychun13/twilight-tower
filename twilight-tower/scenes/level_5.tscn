@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://c13e3icyfxu2l"]
+[gd_scene load_steps=22 format=4 uid="uid://c13e3icyfxu2l"]
 
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_g7332"]
+[ext_resource type="PackedScene" uid="uid://fr7v2vl60rmy" path="res://scenes/hud.tscn" id="1_u0u2e"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="2_kpptd"]
 [ext_resource type="PackedScene" uid="uid://bkxva68b8o82j" path="res://scenes/bat.tscn" id="3_sdd5m"]
 [ext_resource type="PackedScene" uid="uid://d2ia8rh1mmtxd" path="res://scenes/ghost.tscn" id="4_i7jjy"]
@@ -399,6 +400,9 @@ sources/0 = SubResource("TileSetAtlasSource_0qvkb")
 
 [node name="Level5" type="Node"]
 
+[node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_u0u2e")]
+player = NodePath("../Player")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_aowxh")
 
@@ -435,7 +439,7 @@ position = Vector2(69, -117)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 limit_left = -300
-limit_top = -165
+limit_top = -185
 limit_right = 300
 limit_bottom = 185
 

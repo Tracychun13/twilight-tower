@@ -1,3 +1,96 @@
-[gd_scene format=3 uid="uid://fr7v2vl60rmy"]
+[gd_scene load_steps=7 format=3 uid="uid://fr7v2vl60rmy"]
+
+[ext_resource type="Shader" path="res://shaders/hud_invert.gdshader" id="1_0d5up"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_bl0i1"]
+[ext_resource type="Texture2D" uid="uid://b4b538dlt781n" path="res://assets/environment_assets/health.png" id="1_d1625"]
+[ext_resource type="Texture2D" uid="uid://yhbfe0l1ogs4" path="res://assets/environment_assets/LightSprite.png" id="2_5yc6b"]
+[ext_resource type="FontFile" uid="uid://q0p1awgxa3er" path="res://assets/environment_assets/alagard.ttf" id="5_s4cy7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7k0d"]
+shader = ExtResource("1_0d5up")
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_bl0i1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i7k0d")
+position = Vector2(800.167, 37.875)
+scale = Vector2(54.1828, 6.96053)
+texture = ExtResource("2_5yc6b")
+region_enabled = true
+region_rect = Rect2(17, 20.25, 31, 19)
+
+[node name="health_1" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d1625")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="health_2" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d1625")
+offset = Vector2(24, 0)
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="health_3" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d1625")
+offset = Vector2(48, 0)
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="health_4" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d1625")
+offset = Vector2(72, 0)
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="health_5" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d1625")
+offset = Vector2(96, 0)
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="shield" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_d1625")
+offset = Vector2(0, 24)
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="shield_health_label" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 166.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("5_s4cy7")
+theme_override_font_sizes/font_size = 42
+text = "100%"
+
+[node name="current_level_label" type="Label" parent="."]
+offset_left = 1328.0
+offset_top = 8.0
+offset_right = 1460.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("5_s4cy7")
+theme_override_font_sizes/font_size = 48
+text = "Floor "
+
+[node name="current_level_label2" type="Label" parent="."]
+offset_left = 1472.0
+offset_top = 8.0
+offset_right = 1592.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("5_s4cy7")
+theme_override_font_sizes/font_size = 48
+text = "
+ "

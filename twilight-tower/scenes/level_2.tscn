@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=4 uid="uid://8bwf0msx55hc"]
+[gd_scene load_steps=20 format=4 uid="uid://8bwf0msx55hc"]
 
+[ext_resource type="PackedScene" uid="uid://fr7v2vl60rmy" path="res://scenes/hud.tscn" id="1_3sqsy"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_slnuk"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="2_rvxjj"]
 [ext_resource type="PackedScene" uid="uid://bkxva68b8o82j" path="res://scenes/bat.tscn" id="4_myj0u"]
@@ -383,6 +384,9 @@ sources/0 = SubResource("TileSetAtlasSource_tbhou")
 
 [node name="Level_2" type="Node"]
 
+[node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_3sqsy")]
+player = NodePath("../Player")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ktwm2")
 
@@ -407,7 +411,7 @@ position = Vector2(-233, 141)
 position = Vector2(0, -11)
 zoom = Vector2(4, 4)
 limit_left = -300
-limit_top = -165
+limit_top = -185
 limit_right = 300
 limit_bottom = 185
 limit_smoothed = true
