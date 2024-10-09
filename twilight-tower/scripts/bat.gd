@@ -66,7 +66,7 @@ func _on_collision_area_entered(body: Node2D) -> void:
 		print("Player entered damage area")
 		isPlayerTouching = true
 		bat_audio.play()
-		#playerScript.playerDamaged(10)
+		playerScript.playerDamaged(10)
 		time_since_last_damage = 0.0
 
 

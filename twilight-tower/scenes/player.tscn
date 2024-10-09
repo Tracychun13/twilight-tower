@@ -466,7 +466,7 @@ shape = SubResource("CapsuleShape2D_n7fjv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SpamBar" type="TextureProgressBar" parent="CanvasLayer"]
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

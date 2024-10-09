@@ -147,7 +147,7 @@ func _physics_process(_delta: float) -> void:
 		get_input()
 	if is_captured_by_ghost:
 		velocity = ghost_drag_vector
-	if bat_is_in_hitbox and can_take_damage:
+	if can_take_damage:
 		playerDamaged(10)
 	if(is_detained):
 		spam_canvas.visible = true
