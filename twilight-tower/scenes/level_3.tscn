@@ -428,11 +428,11 @@ limit_right = 300
 limit_bottom = 185
 
 [node name="Bat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_gj25v")]
-position = Vector2(-235, -9)
+position = Vector2(-200, -86)
 player = NodePath("../Player")
 
 [node name="Bat2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_gj25v")]
-position = Vector2(-120, 89)
+position = Vector2(-159, 73)
 player = NodePath("../Player")
 
 [node name="light" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_s0lfa")]

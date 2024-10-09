@@ -8,7 +8,7 @@
 shader = ExtResource("2_h5bw8")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kd25a"]
-radius = 21.0
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rh1ba"]
 radius = 29.4109
