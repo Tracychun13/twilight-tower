@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://c2jfwfxw5nuf3"]
+[gd_scene load_steps=18 format=4 uid="uid://c2jfwfxw5nuf3"]
 
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_6b4d6"]
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="2_5dmet"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="3_s0lfa"]
 [ext_resource type="PackedScene" uid="uid://bpkcsxblxa0l3" path="res://scenes/next_level.tscn" id="4_6lts3"]
 [ext_resource type="PackedScene" uid="uid://bkxva68b8o82j" path="res://scenes/bat.tscn" id="5_gj25v"]
+[ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="6_xkc6n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4u0pa"]
 vertices = PackedVector2Array(277.008, 166, -280, 166, -280.992, -154, 279.992, -154.992)
@@ -423,3 +424,7 @@ player = NodePath("../Player")
 position = Vector2(-232, 119)
 scale = Vector2(2.02344, 1.96875)
 player = NodePath("../Player")
+
+[node name="BackgroundScore" parent="." instance=ExtResource("6_xkc6n")]
+position = Vector2(-65, -62)
+scale = Vector2(2.63281, 2.58594)

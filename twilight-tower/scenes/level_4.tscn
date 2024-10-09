@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://carayg2duu2w5"]
+[gd_scene load_steps=19 format=4 uid="uid://carayg2duu2w5"]
 
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_t47kt"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="2_vx4gk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="3_km5am"]
 [ext_resource type="PackedScene" uid="uid://d2ia8rh1mmtxd" path="res://scenes/ghost.tscn" id="4_nr370"]
 [ext_resource type="PackedScene" uid="uid://bpkcsxblxa0l3" path="res://scenes/next_level.tscn" id="6_eynf4"]
+[ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="7_yocvg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ewc6i"]
 vertices = PackedVector2Array(277.008, 166, -280, 166, -280.992, -154, 279.992, -154.992)
@@ -63,7 +64,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_arrjy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hevc6"]
 texture = ExtResource("1_t47kt")
 2:1/0 = 0
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lq7w0")
@@ -379,7 +380,7 @@ texture = ExtResource("1_t47kt")
 [sub_resource type="TileSet" id="TileSet_ockkx"]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_arrjy")
+sources/0 = SubResource("TileSetAtlasSource_hevc6")
 
 [node name="Level4" type="Node"]
 
@@ -437,3 +438,7 @@ scale = Vector2(1.67188, 1.625)
 player = NodePath("../Player")
 ghost = NodePath("../Ghost")
 ghost2 = NodePath("../Ghost2")
+
+[node name="BackgroundScore" parent="." instance=ExtResource("7_yocvg")]
+position = Vector2(-65, -62)
+scale = Vector2(2.63281, 2.58594)

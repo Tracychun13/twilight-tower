@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c13e3icyfxu2l"]
+[gd_scene load_steps=20 format=4 uid="uid://c13e3icyfxu2l"]
 
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_g7332"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="2_kpptd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="5_1l4kv"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="6_hboux"]
 [ext_resource type="PackedScene" uid="uid://bpkcsxblxa0l3" path="res://scenes/next_level.tscn" id="7_k65hj"]
+[ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="8_d7b76"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_aowxh"]
 vertices = PackedVector2Array(277.008, 166, -280, 166, -280.992, -154, 279.992, -154.992)
@@ -407,7 +408,7 @@ position = Vector2(45, 51)
 player = NodePath("../Player")
 
 [node name="Bat2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_sdd5m")]
-position = Vector2(-251, -119)
+position = Vector2(-163, -119)
 player = NodePath("../Player")
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("4_i7jjy")]
@@ -427,6 +428,12 @@ limit_top = -165
 limit_right = 300
 limit_bottom = 185
 
-[node name="light" parent="." instance=ExtResource("6_hboux")]
+[node name="light" parent="." node_paths=PackedStringArray("player", "ghost") instance=ExtResource("6_hboux")]
 position = Vector2(-56, -88)
 scale = Vector2(2.25, 2.20312)
+player = NodePath("../Player")
+ghost = NodePath("../Ghost")
+
+[node name="BackgroundScore" parent="." instance=ExtResource("8_d7b76")]
+position = Vector2(-175, -178)
+scale = Vector2(2.63281, 2.58594)

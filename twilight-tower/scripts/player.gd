@@ -13,7 +13,7 @@ var spamCounter = 0
 var bat_is_in_hitbox = false
 var is_shielding = false
 var is_attacking = false
-#var landedHit = false
+var can_move = true
 var can_attack_again = true
 var time_since_last_damage: float = 0.0
 var damage_interval = 0.5
@@ -122,7 +122,8 @@ func detained_spamming() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	get_input()
+	if can_move:
+		get_input()
 	if is_captured_by_ghost:
 		velocity = ghost_drag_vector
 

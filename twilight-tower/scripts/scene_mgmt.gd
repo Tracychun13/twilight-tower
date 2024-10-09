@@ -1,6 +1,6 @@
 extends Node
 
-var current_level = 1
+var current_level = 0
 var curr_scene: Node = null
 enum Level{
 	LEVEL_MAIN=0,
@@ -31,7 +31,7 @@ const id_to_level = {
 }
 
 const levels = {
-	Level.LEVEL_MAIN:"res://scenes/level_main.tscn",
+	Level.LEVEL_MAIN:"res://scenes/title_screen.tscn",
 	Level.LEVEL_ONE:"res://scenes/level_1.tscn",
 	Level.LEVEL_TWO:"res://scenes/level_2.tscn",
 	Level.LEVEL_THREE:"res://scenes/level_3.tscn",
@@ -58,7 +58,8 @@ func go_to_level(levelId: int):
 	#if levelId == current_level and levelId > 1:
 		#levelId -= 1
 	var targetLevel = id_to_level[levelId]
-	load_scene(targetLevel)
+	current_level = targetLevel
+	load_scene(current_level)
 	
 func change_level():
 	current_level += 1
