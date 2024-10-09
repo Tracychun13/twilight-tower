@@ -1,6 +1,6 @@
 extends Node
 
-var current_level = 1
+var current_level = 6
 var curr_scene: Node = null
 enum Level{
 	LEVEL_MAIN=0,

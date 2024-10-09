@@ -1,10 +1,13 @@
-[gd_scene load_steps=60 format=3 uid="uid://cepqnlk6am0fb"]
+[gd_scene load_steps=63 format=3 uid="uid://cepqnlk6am0fb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_051no"]
 [ext_resource type="Texture2D" uid="uid://va7hdc0i35wi" path="res://assets/hero_sprite/Death.png" id="2_6c310"]
 [ext_resource type="Texture2D" uid="uid://bkmasgw50wnyq" path="res://assets/player_assets/Attack.png" id="2_falw8"]
 [ext_resource type="Texture2D" uid="uid://bxmr6ikkijfjs" path="res://assets/player_assets/PlayerWalking.png" id="5_57abx"]
 [ext_resource type="Texture2D" uid="uid://fn8x6cw42s7c" path="res://assets/player_assets/Shield.png" id="6_0r2id"]
+[ext_resource type="Texture2D" uid="uid://iyv0as48yc1x" path="res://assets/environment_assets/healthBarBacking.png" id="6_sy35v"]
+[ext_resource type="Texture2D" uid="uid://cnrtu8vmhh2jg" path="res://assets/environment_assets/healthBar.png" id="7_xjqvo"]
+[ext_resource type="Script" path="res://scripts/spam_bar.gd" id="8_irenv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugfbu"]
 atlas = ExtResource("2_falw8")
@@ -459,6 +462,27 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_n7fjv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpamBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -545.0
+offset_top = -152.0
+offset_right = -273.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+step = 10.0
+value = 50.0
+texture_under = ExtResource("6_sy35v")
+texture_progress = ExtResource("7_xjqvo")
+script = ExtResource("8_irenv")
 
 [connection signal="body_entered" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_entered"]
 [connection signal="body_exited" from="AnimatedSprite2D/AttackingHitbox" to="." method="_on_attacking_hitbox_body_exited"]

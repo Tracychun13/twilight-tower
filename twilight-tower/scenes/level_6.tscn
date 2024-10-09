@@ -530,7 +530,7 @@ limit_bottom = 185
 limit_smoothed = true
 
 [node name="Spider1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_d034f")]
-position = Vector2(-112, 44)
+position = Vector2(-119, 45)
 rotation = 2.87044
 player = NodePath("../Player")
 

@@ -1,5 +1,7 @@
 extends CharacterBody2D;
 
+signal spam
+
 var SPEED = 75.0
 const ZERO_VEC = Vector2(0.0, 0.0)
 const spamGoal = 100
@@ -19,6 +21,7 @@ var can_attack_again = true
 var time_since_last_damage: float = 0.0
 var damage_interval = 0.5
 var can_take_damage = false
+
 @export var speed_multiplier: float = 1.0
 @onready var player_root = $"."
 @onready var timer = $SpamTimer
@@ -27,9 +30,11 @@ var can_take_damage = false
 @onready var bat = $"../Bat"
 @onready var bat2 = $"../Bat2"
 @onready var collision = $CollisionShape2D
+@onready var spam_canvas = $CanvasLayer
 
 func _ready() -> void:
 	SPEED *= speed_multiplier
+	spam_canvas.visible = false
 
 func die():
 	sprite2d.play("die")
@@ -107,6 +112,7 @@ Handles the event of the player getting shot by a web shot
 '''
 func shot_by_web() -> void:
 	print("got shot")
+	spam_canvas.visible = false
 	is_detained = true
 
 # when bat hits the player call this
@@ -125,12 +131,15 @@ func playerDamaged(value):
 
 func detained_spamming() -> void:
 	spamCounter+= 10;
+	spam.emit()
 	print(spamCounter);
 	if(spamCounter == spamGoal):
 		timer.stop()
 		print("player is free")
 		is_detained = false
+		spam_canvas.visible = false
 		spamCounter = 0
+		spam.emit()
 
 
 func _physics_process(_delta: float) -> void:
@@ -141,6 +150,7 @@ func _physics_process(_delta: float) -> void:
 	if bat_is_in_hitbox and can_take_damage:
 		playerDamaged(10)
 	if(is_detained):
+		spam_canvas.visible = true
 		sprite2d.play("detained")
 	move_and_slide()
 
