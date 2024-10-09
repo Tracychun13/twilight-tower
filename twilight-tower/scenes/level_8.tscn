@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://f3ii84j0tk65"]
+[gd_scene load_steps=7 format=3 uid="uid://f3ii84j0tk65"]
+
+[ext_resource type="Texture2D" uid="uid://b0d5npebk7xxl" path="res://assets/environment_assets/Ending.png" id="1_pls5d"]
+[ext_resource type="FontFile" uid="uid://q0p1awgxa3er" path="res://assets/environment_assets/alagard.ttf" id="2_60r66"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bduxi"]
+atlas = ExtResource("1_pls5d")
+region = Rect2(0, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by1m8"]
+atlas = ExtResource("1_pls5d")
+region = Rect2(810, 0, 800, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uh8t"]
+atlas = ExtResource("1_pls5d")
+region = Rect2(1620, 0, 800, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85ink"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bduxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by1m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uh8t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level8" type="Node"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_85ink")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -243.0
+offset_top = -244.0
+offset_right = 247.0
+offset_bottom = -177.0
+theme_override_fonts/font = ExtResource("2_60r66")
+theme_override_font_sizes/font_size = 70
+text = "Choose wisely..."
