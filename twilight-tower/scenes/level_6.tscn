@@ -1,11 +1,13 @@
-[gd_scene load_steps=39 format=4 uid="uid://dxo00dyu1oxa4"]
+[gd_scene load_steps=41 format=4 uid="uid://dxo00dyu1oxa4"]
 
+[ext_resource type="Script" path="res://scripts/level_6.gd" id="1_cgfu8"]
 [ext_resource type="PackedScene" uid="uid://fr7v2vl60rmy" path="res://scenes/hud.tscn" id="1_e8t5a"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_uqqgp"]
 [ext_resource type="PackedScene" uid="uid://div3yomq2t70j" path="res://scenes/spider.tscn" id="2_d034f"]
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="3_480sj"]
 [ext_resource type="PackedScene" uid="uid://bpkcsxblxa0l3" path="res://scenes/next_level.tscn" id="4_jhrsi"]
 [ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="5_lwoir"]
+[ext_resource type="PackedScene" uid="uid://cp2j4int53l75" path="res://scenes/transition_screen.tscn" id="8_c7yur"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_buar1"]
 vertices = PackedVector2Array(214, 79, 214, -129, 268, -129, 268, 149, 118, 149, 172, 79, 118, -107, 172, -129, 22, -129, 76, -107, 22, 95, 76, 149, -74, 149, -20, 95, -74, -75, -20, -129, -266, -129, -212, -75, -266, 21, -212, -33, -170, 21, -116, -33, -116, 149, -170, 63, -266, 149, -266, 63, -298, -161, 300, -161, 286.047, -150, -285.023, -150, -298, 181, -284.961, -133.977, -284.656, -37.9766, -284.602, -21.9766, -284.398, 42.0234, -284.344, 58.0234, -284.297, 74.0234, -284.242, 90.0234, -284.203, 106.023, -284.141, 122.023, -284.039, 154.023, -283.977, 170.992, 300, 181, -271.008, 171.008, -239.008, 171.07, -223.008, 171.094, -207.008, 171.133, -191.008, 171.156, -175.008, 171.18, -95.0078, 171.328, -79.0078, 171.352, 16.9922, 171.531, 32.9922, 171.547, 48.9922, 171.594, 64.9922, 171.617, 80.9922, 171.641, 160.992, 171.789, 176.992, 171.812, 192.992, 171.844, 208.992, 171.883, 224.992, 171.898, 256.992, 171.961, 282.953, 172.023, 285.891, -133.953, 285.594, -101.953, 285.43, -85.9531, 285.133, -53.9531, 284.969, -37.9531, 284.82, -21.9531, 284.656, -5.95312, 284.359, 26.0469, 284.203, 42.0469, 284.047, 58.0469, 283.891, 74.0469, 283.594, 106.047, 283.43, 122.047, 283.133, 154.047, 272.977, 171.977, 272.977, 171.969)
@@ -496,6 +498,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_1t0jo")
 
 [node name="Level6" type="Node"]
+script = ExtResource("1_cgfu8")
 
 [node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_e8t5a")]
 player = NodePath("../Player")
@@ -553,3 +556,5 @@ player = NodePath("../Player")
 position = Vector2(195, 93)
 rotation = 1.41556
 player = NodePath("../Player")
+
+[node name="TransitionScreen" parent="." instance=ExtResource("8_c7yur")]

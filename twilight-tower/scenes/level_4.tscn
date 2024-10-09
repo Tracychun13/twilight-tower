@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=4 uid="uid://carayg2duu2w5"]
+[gd_scene load_steps=24 format=4 uid="uid://carayg2duu2w5"]
 
 [ext_resource type="PackedScene" uid="uid://fr7v2vl60rmy" path="res://scenes/hud.tscn" id="1_2ywjh"]
+[ext_resource type="Script" path="res://scripts/level_4.gd" id="1_s6sya"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_t47kt"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="2_vx4gk"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="2_wqcoa"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bpkcsxblxa0l3" path="res://scenes/next_level.tscn" id="6_eynf4"]
 [ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="7_yocvg"]
 [ext_resource type="FontFile" uid="uid://q0p1awgxa3er" path="res://assets/environment_assets/alagard.ttf" id="9_q4etm"]
+[ext_resource type="PackedScene" uid="uid://cp2j4int53l75" path="res://scenes/transition_screen.tscn" id="11_3xitj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ewc6i"]
 vertices = PackedVector2Array(268, -49, 275, -49, 274.797, -27, 268, -27, 268, 15, 274.406, 15, 274.211, 37, 268, 37, -266, 5, -276.5, 5, -276.57, -17, -266, -17, -132, -1, 198, -150.844, 236, -150.906, 236, -129, 198, -129, 268, -129, 134, 95, 284.117, 47, 300, 47, 300, 181, 284.023, 58.0469, 283.57, 106.047, 283.406, 122.047, 283.273, 138.047, 283.117, 154.047, 282.953, 172, -298, 181, -4, 172, -298, 15, -286.469, 15, -286.438, 26.0078, -286.391, 42.0234, -286.039, 154.023, -285.977, 172, -10, 149, -90, 149, -90, 53, 92, 95, -132, 53, -132, 149, -266, 149, -266, -129, -132, -129, -90, -1, -90, -129, 92, -129, 134, -129, 268, 149, -4, 149, -10, 172, 300, 5, 284.508, 5, 284.609, -5.95312, 300, -17, 284.711, -17, -286.633, -37.9766, -286.602, -27, -298, -27, -298, -161, -286.688, -53.9766, -286.727, -69.9766, -286.789, -85.9766, -286.844, -101.992, -286.883, -117.977, -286.938, -133.977, -286.977, -149.977, -287.023, -159.992, 188, -161, -271.008, -160.023, -255.008, -160.047, -239.008, -160.07, -175.008, -160.188, -159.008, -160.211, -79.0078, -160.359, -63.0078, -160.383, -31.0078, -160.453, 188, -160.828, 176.992, -160.812, 160.992, -160.781, 144.992, -160.758, 64.9922, -160.609, 48.9922, -160.594, 32.9922, -160.547, 16.9922, -160.523, 0.976562, -160.5, -47.0078, -160.406, -15.0078, -160.469, 300, -161, 300, -59, 285.102, -59, 285.203, -69.9531, 294, -129, 294, -161, 285.648, -117.953, 285.75, -129, 256.992, -160.953, 246, -160.922, 246, -161, 268, -161, 268, -160.969)
@@ -396,6 +398,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_hevc6")
 
 [node name="Level4" type="Node"]
+script = ExtResource("1_s6sya")
 
 [node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_2ywjh")]
 player = NodePath("../Player")
@@ -490,3 +493,5 @@ theme_override_fonts/font = ExtResource("9_q4etm")
 text = "Take refuge in the light!"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="TransitionScreen" parent="." instance=ExtResource("11_3xitj")]

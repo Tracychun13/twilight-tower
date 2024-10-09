@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://f3ii84j0tk65"]
+[gd_scene load_steps=11 format=3 uid="uid://f3ii84j0tk65"]
 
+[ext_resource type="Script" path="res://scripts/level_8.gd" id="1_mbrk3"]
 [ext_resource type="Texture2D" uid="uid://b0d5npebk7xxl" path="res://assets/environment_assets/Ending.png" id="1_pls5d"]
 [ext_resource type="FontFile" uid="uid://q0p1awgxa3er" path="res://assets/environment_assets/alagard.ttf" id="2_60r66"]
+[ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="4_b8u5t"]
+[ext_resource type="PackedScene" uid="uid://cp2j4int53l75" path="res://scenes/transition_screen.tscn" id="4_d3ppp"]
+[ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="6_yde1m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bduxi"]
 atlas = ExtResource("1_pls5d")
@@ -33,15 +37,30 @@ animations = [{
 }]
 
 [node name="Level8" type="Node"]
+script = ExtResource("1_mbrk3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(797, 442.5)
+scale = Vector2(1.9925, 1.495)
 sprite_frames = SubResource("SpriteFrames_85ink")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -243.0
-offset_top = -244.0
-offset_right = 247.0
-offset_bottom = -177.0
+offset_left = 498.0
+offset_top = 93.0
+offset_right = 988.0
+offset_bottom = 160.0
 theme_override_fonts/font = ExtResource("2_60r66")
 theme_override_font_sizes/font_size = 70
 text = "Choose wisely..."
+
+[node name="Player" parent="." instance=ExtResource("6_yde1m")]
+position = Vector2(484, 657)
+speed_multiplier = 2.5
+
+[node name="hole2" parent="." instance=ExtResource("4_b8u5t")]
+position = Vector2(941, 695)
+
+[node name="hole" parent="." instance=ExtResource("4_b8u5t")]
+position = Vector2(925, 529)
+
+[node name="TransitionScreen" parent="." instance=ExtResource("4_d3ppp")]
