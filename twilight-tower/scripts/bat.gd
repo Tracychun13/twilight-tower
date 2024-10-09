@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal healthChanged
+
 const SPEED = 60.0
 var health = 100
 var playerEnteredRange = false
@@ -43,6 +45,7 @@ func _on_timer_timeout() -> void:
 func batDamaged(value) -> void:
 	if health > 0:
 		health-= value
+		healthChanged.emit()
 		print("BAT HEALTH: ", health)
 	
 	

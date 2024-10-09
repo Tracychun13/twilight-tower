@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkxva68b8o82j"]
+[gd_scene load_steps=17 format=3 uid="uid://bkxva68b8o82j"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_w8dxn"]
 [ext_resource type="Texture2D" uid="uid://die4rhwkgo1fl" path="res://assets/bat_assets/batSprite.png" id="2_wgu2g"]
 [ext_resource type="AudioStream" uid="uid://wndjf137ofdk" path="res://assets/audio/bat.wav" id="3_nn053"]
+[ext_resource type="Texture2D" uid="uid://iyv0as48yc1x" path="res://assets/environment_assets/healthBarBacking.png" id="4_lcujr"]
+[ext_resource type="Texture2D" uid="uid://cnrtu8vmhh2jg" path="res://assets/environment_assets/healthBar.png" id="5_g2y6q"]
+[ext_resource type="Script" path="res://scenes/healthBar.gd" id="6_prdk8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_supo0"]
 atlas = ExtResource("2_wgu2g")
@@ -97,6 +100,22 @@ shape = SubResource("CircleShape2D_xrg7o")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="CollisionArea"]
 shape = SubResource("RectangleShape2D_2rwty")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -13.0
+offset_right = 258.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+value = 50.0
+texture_under = ExtResource("4_lcujr")
+texture_progress = ExtResource("5_g2y6q")
+script = ExtResource("6_prdk8")
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_bat_audio_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
