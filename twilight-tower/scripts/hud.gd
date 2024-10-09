@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	curr_level.text = str(SceneMgmt.current_level)
+	
 	shield_health.text = str(player.shieldHealth) + '%'
 	if 80 <= player.health and player.health < 100:
 		if player.health < 90:

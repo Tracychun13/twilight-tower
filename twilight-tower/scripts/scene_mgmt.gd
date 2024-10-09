@@ -1,6 +1,6 @@
 extends Node
 
-var current_level = 6
+var current_level = 4
 var curr_scene: Node = null
 enum Level{
 	LEVEL_MAIN=0,
@@ -58,7 +58,8 @@ func go_to_level(levelId: int):
 	#if levelId == current_level and levelId > 1:
 		#levelId -= 1
 	var targetLevel = id_to_level[levelId]
-	current_level = targetLevel
+	current_level = levelId
+	print(current_level)
 	load_scene(current_level)
 	
 func change_level():
