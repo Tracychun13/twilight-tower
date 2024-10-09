@@ -1,9 +1,8 @@
-[gd_scene load_steps=63 format=3 uid="uid://cepqnlk6am0fb"]
+[gd_scene load_steps=60 format=3 uid="uid://cepqnlk6am0fb"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_051no"]
 [ext_resource type="Texture2D" uid="uid://va7hdc0i35wi" path="res://assets/hero_sprite/Death.png" id="2_6c310"]
 [ext_resource type="Texture2D" uid="uid://bkmasgw50wnyq" path="res://assets/player_assets/Attack.png" id="2_falw8"]
-[ext_resource type="Texture2D" uid="uid://dtgoso4k3t7i7" path="res://assets/hero_sprite/Hurt.png" id="4_tbmah"]
 [ext_resource type="Texture2D" uid="uid://bxmr6ikkijfjs" path="res://assets/player_assets/PlayerWalking.png" id="5_57abx"]
 [ext_resource type="Texture2D" uid="uid://fn8x6cw42s7c" path="res://assets/player_assets/Shield.png" id="6_0r2id"]
 
@@ -67,21 +66,13 @@ region = Rect2(252, 0, 42, 42)
 atlas = ExtResource("2_6c310")
 region = Rect2(294, 0, 42, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jw508"]
-atlas = ExtResource("4_tbmah")
-region = Rect2(0, 0, 42, 42)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2d5x"]
+atlas = ExtResource("5_57abx")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwtu2"]
-atlas = ExtResource("4_tbmah")
-region = Rect2(42, 0, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ekrr4"]
-atlas = ExtResource("4_tbmah")
-region = Rect2(84, 0, 42, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8byxe"]
-atlas = ExtResource("4_tbmah")
-region = Rect2(126, 0, 42, 42)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1ajc"]
+atlas = ExtResource("5_57abx")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6w4bt"]
 atlas = ExtResource("5_57abx")
@@ -283,20 +274,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jw508")
+"texture": SubResource("AtlasTexture_k2d5x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gwtu2")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ekrr4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8byxe")
+"texture": SubResource("AtlasTexture_j1ajc")
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 10.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -450,9 +438,9 @@ script = ExtResource("1_051no")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oldj6")
-animation = &"attack"
+animation = &"hurt"
 autoplay = "idle"
-frame = 5
+frame = 2
 frame_progress = 1.0
 
 [node name="AttackingHitbox" type="Area2D" parent="AnimatedSprite2D"]
