@@ -534,11 +534,10 @@ limit_right = 300
 limit_bottom = 185
 limit_smoothed = true
 
-[node name="light" parent="." node_paths=PackedStringArray("player", "bat", "ghost") instance=ExtResource("6_pdjxc")]
+[node name="light" parent="." node_paths=PackedStringArray("player", "ghost") instance=ExtResource("6_pdjxc")]
 position = Vector2(-24, -52.75)
 scale = Vector2(2.125, 1.99219)
 player = NodePath("../Player")
-bat = NodePath("../Bat")
 ghost = NodePath("../Ghost")
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player", "hole") instance=ExtResource("7_4hq4i")]

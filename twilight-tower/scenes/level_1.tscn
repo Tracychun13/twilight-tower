@@ -525,11 +525,10 @@ limit_top = -165
 limit_right = 300
 limit_bottom = 185
 
-[node name="light" parent="." node_paths=PackedStringArray("player", "bat") instance=ExtResource("6_pdjxc")]
+[node name="light" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_pdjxc")]
 position = Vector2(-65, -62)
 scale = Vector2(2.63281, 2.58594)
 player = NodePath("../Player")
-bat = NodePath("../Bat")
 
 [node name="BackgroundScore" parent="." instance=ExtResource("9_o5lnn")]
 position = Vector2(-65, -62)
