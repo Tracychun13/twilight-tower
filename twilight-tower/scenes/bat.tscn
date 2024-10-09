@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://wndjf137ofdk" path="res://assets/audio/bat.wav" id="3_nn053"]
 [ext_resource type="Texture2D" uid="uid://iyv0as48yc1x" path="res://assets/environment_assets/healthBarBacking.png" id="4_lcujr"]
 [ext_resource type="Texture2D" uid="uid://cnrtu8vmhh2jg" path="res://assets/environment_assets/healthBar.png" id="5_g2y6q"]
-[ext_resource type="Script" path="res://scenes/healthBar.gd" id="6_prdk8"]
+[ext_resource type="Script" path="res://scripts/healthBar.gd" id="6_prdk8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_supo0"]
 atlas = ExtResource("2_wgu2g")

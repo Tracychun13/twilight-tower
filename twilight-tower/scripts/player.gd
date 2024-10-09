@@ -11,6 +11,7 @@ var health = 100
 var shieldHealth = 100
 var spamCounter = 0
 var bat_is_in_hitbox = false
+var bat2_is_in_hitbox = false
 var is_shielding = false
 var is_attacking = false
 var can_move = true
@@ -24,6 +25,7 @@ var can_take_damage = false
 @onready var attack_timer = $AttackTimer
 @onready var sprite2d = $AnimatedSprite2D
 @onready var bat = $"../Bat"
+@onready var bat2 = $"../Bat2"
 @onready var collision = $CollisionShape2D
 
 func _ready() -> void:
@@ -55,6 +57,11 @@ func get_input():
 			attack_timer.start()
 			print("Attacking bat")
 			bat.batDamaged(20)
+		if bat2_is_in_hitbox and bat2.isAlive and can_attack_again:
+			can_attack_again = false
+			attack_timer.start()
+			print("Attacking bat")
+			bat2.batDamaged(20)
 		is_shielding = false
 		is_attacking = true
 		sprite2d.play("attack")
@@ -146,11 +153,17 @@ func _on_attacking_hitbox_body_entered(body: Node2D) -> void:
 	if body == bat:
 		print('bat entered attack hitbox')
 		bat_is_in_hitbox = true
+	if body == bat2:
+		print('bat entered attack hitbox')
+		bat2_is_in_hitbox = true
 
 func _on_attacking_hitbox_body_exited(body: Node2D) -> void:
 	if body == bat:
 		print('bat left attack hitbox')
 		bat_is_in_hitbox = false
+	if body == bat2:
+		print('bat left attack hitbox')
+		bat2_is_in_hitbox = false
 
 
 func _on_attack_timer_timeout() -> void:

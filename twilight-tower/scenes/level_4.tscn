@@ -480,3 +480,13 @@ they will leave you falling...
 "
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -69.0
+offset_top = 7.0
+offset_right = 67.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("9_q4etm")
+text = "Take refuge in the light!"
+horizontal_alignment = 1
+autowrap_mode = 2
