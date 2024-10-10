@@ -4,6 +4,7 @@ extends Node
 @onready var hole = $hole
 @onready var player = $Player
 @onready var hole2 = $hole2
+@onready var background = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,3 +13,7 @@ func _ready() -> void:
 		hole.winningHole = true
 	else:
 		hole2.winningHole = true
+		
+		
+func _process(delta: float) -> void:
+	background.play("default")

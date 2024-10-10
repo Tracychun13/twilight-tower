@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://f3ii84j0tk65"]
+[gd_scene load_steps=12 format=3 uid="uid://f3ii84j0tk65"]
 
 [ext_resource type="Script" path="res://scripts/level_8.gd" id="1_mbrk3"]
 [ext_resource type="Texture2D" uid="uid://b0d5npebk7xxl" path="res://assets/environment_assets/Ending.png" id="1_pls5d"]
 [ext_resource type="FontFile" uid="uid://q0p1awgxa3er" path="res://assets/environment_assets/alagard.ttf" id="2_60r66"]
 [ext_resource type="PackedScene" uid="uid://cndebk628rpcc" path="res://scenes/hole.tscn" id="4_b8u5t"]
 [ext_resource type="PackedScene" uid="uid://cp2j4int53l75" path="res://scenes/transition_screen.tscn" id="4_d3ppp"]
+[ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="5_wdy57"]
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="6_yde1m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bduxi"]
@@ -55,12 +56,19 @@ text = "Choose wisely..."
 
 [node name="Player" parent="." instance=ExtResource("6_yde1m")]
 position = Vector2(484, 657)
+scale = Vector2(3, 3)
 speed_multiplier = 2.5
+
+[node name="BackgroundScore" parent="Player" instance=ExtResource("5_wdy57")]
+position = Vector2(-120, -460)
+scale = Vector2(2.63281, 2.58594)
 
 [node name="hole2" parent="." instance=ExtResource("4_b8u5t")]
 position = Vector2(941, 695)
+scale = Vector2(3, 3)
 
 [node name="hole" parent="." instance=ExtResource("4_b8u5t")]
 position = Vector2(925, 529)
+scale = Vector2(3, 3)
 
 [node name="TransitionScreen" parent="." instance=ExtResource("4_d3ppp")]

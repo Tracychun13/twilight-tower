@@ -65,6 +65,10 @@ detained={
 ]
 }
 
+[physics]
+
+2d/depth_of_field/depth_of_field_use_jitter=false
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
