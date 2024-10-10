@@ -653,6 +653,7 @@ tile_set = SubResource("TileSet_ghyah")
 
 [node name="Player" parent="." instance=ExtResource("2_3pcyv")]
 position = Vector2(51, 452)
+speed_multiplier = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)

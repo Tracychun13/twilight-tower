@@ -7,11 +7,14 @@ extends Area2D
 
 func _ready() -> void:
 	warning.visible = false
-	
+
 func _on_body_entered(body: Node2D) -> void:
 	if body == player:
-		if bat1.isAlive or bat2.isAlive:
+		if is_instance_valid(bat1) and bat1.isAlive:
 			warning.visible = true
-			#SceneMgmt.go_to_level(SceneMgmt.current_level)
+			
+		elif is_instance_valid(bat2) and bat2.isAlive:
+			warning.visible = true
+
 		else:
 			SceneMgmt.change_level()

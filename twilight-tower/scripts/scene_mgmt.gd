@@ -1,6 +1,7 @@
 extends Node
 
 var current_level = 8
+var reached_final_before = false
 var curr_scene: Node = null
 enum Level{
 	LEVEL_MAIN=0,

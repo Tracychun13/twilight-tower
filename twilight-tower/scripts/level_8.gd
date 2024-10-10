@@ -8,11 +8,16 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	tran_screen.transition()
-	if randf() > 0.5:
+	if SceneMgmt.reached_final_before:
 		hole.winningHole = true
-	else:
 		hole2.winningHole = true
+	else:
+		SceneMgmt.reached_final_before = true
+		tran_screen.transition()
+		if randf() > 0.5:
+			hole.winningHole = true
+		else:
+			hole2.winningHole = true
 		
 		
 func _process(delta: float) -> void:
