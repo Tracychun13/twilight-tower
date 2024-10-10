@@ -160,7 +160,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnicb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb0of"]
 texture = ExtResource("1_wxe2a")
 2:1/0 = 0
 2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_no3ko")
@@ -499,7 +499,7 @@ texture = ExtResource("1_wxe2a")
 [sub_resource type="TileSet" id="TileSet_jffqi"]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_tnicb")
+sources/0 = SubResource("TileSetAtlasSource_wb0of")
 
 [node name="Level7" type="Node"]
 script = ExtResource("1_wgwbu")
