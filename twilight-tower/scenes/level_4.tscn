@@ -401,6 +401,7 @@ sources/0 = SubResource("TileSetAtlasSource_hevc6")
 script = ExtResource("1_s6sya")
 
 [node name="Hud" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_2ywjh")]
+visible = false
 player = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -424,6 +425,7 @@ position = Vector2(10, 97)
 [node name="Player" parent="." instance=ExtResource("3_km5am")]
 z_index = 0
 position = Vector2(-250, -17)
+speed_multiplier = 1.2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -445,8 +447,8 @@ hole = NodePath("../hole2")
 home = Vector2(0, 100)
 
 [node name="light2" parent="." node_paths=PackedStringArray("player", "ghost", "ghost2") instance=ExtResource("2_vx4gk")]
-position = Vector2(218, 102)
-scale = Vector2(1.78125, 1.6875)
+position = Vector2(111, 14)
+scale = Vector2(2.29688, 2.11719)
 player = NodePath("../Player")
 ghost = NodePath("../Ghost")
 ghost2 = NodePath("../Ghost2")
@@ -485,9 +487,9 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
-offset_left = -69.0
+offset_left = -91.0
 offset_top = 7.0
-offset_right = 67.0
+offset_right = 45.0
 offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("9_q4etm")
 text = "Take refuge in the light!"

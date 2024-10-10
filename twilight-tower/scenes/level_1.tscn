@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://c0ssbemifl6gb"]
+[gd_scene load_steps=47 format=4 uid="uid://c0ssbemifl6gb"]
 
 [ext_resource type="PackedScene" uid="uid://fr7v2vl60rmy" path="res://scenes/hud.tscn" id="1_3lmmv"]
 [ext_resource type="Texture2D" uid="uid://dxvhonw548wo6" path="res://assets/environment_assets/tilemap.png" id="1_v4je4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cepqnlk6am0fb" path="res://scenes/player.tscn" id="5_1h8cl"]
 [ext_resource type="PackedScene" uid="uid://kpuvt45selag" path="res://scenes/light_area.tscn" id="6_pdjxc"]
 [ext_resource type="FontFile" uid="uid://q0p1awgxa3er" path="res://assets/environment_assets/alagard.ttf" id="8_am5k5"]
+[ext_resource type="Shader" path="res://shaders/invert_colors.gdshader" id="9_7k3ns"]
 [ext_resource type="PackedScene" uid="uid://ccys3h26v3rnb" path="res://scenes/background_score.tscn" id="9_o5lnn"]
 [ext_resource type="PackedScene" uid="uid://cp2j4int53l75" path="res://scenes/transition_screen.tscn" id="9_xwmiy"]
 
@@ -501,6 +502,15 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_dpfv0")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m38ug"]
+shader = ExtResource("9_7k3ns")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d35ya"]
+shader = ExtResource("9_7k3ns")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21o3s"]
+shader = ExtResource("9_7k3ns")
+
 [node name="Level1" type="Node"]
 script = ExtResource("1_w34yk")
 
@@ -546,16 +556,18 @@ position = Vector2(-65, -62)
 scale = Vector2(2.63281, 2.58594)
 
 [node name="Label" type="Label" parent="."]
+material = SubResource("ShaderMaterial_m38ug")
 offset_left = -257.0
 offset_top = -61.0
 offset_right = -203.0
 offset_bottom = 62.0
 theme_override_fonts/font = ExtResource("8_am5k5")
-text = "Press j or                            RMB to shield"
+text = "Press j or                            RMB to Shield"
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
+material = SubResource("ShaderMaterial_d35ya")
 anchors_preset = -1
 anchor_left = 0.032
 anchor_top = -0.112
@@ -571,17 +583,18 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="."]
+material = SubResource("ShaderMaterial_21o3s")
 anchors_preset = -1
 anchor_left = 0.032
 anchor_top = -0.112
 anchor_right = 0.032
 anchor_bottom = -0.112
-offset_left = -40.2
-offset_top = -7.2
-offset_right = 96.8
-offset_bottom = 20.8
+offset_left = -69.2
+offset_top = -25.2
+offset_right = 67.8
+offset_bottom = 7.8
 theme_override_fonts/font = ExtResource("8_am5k5")
-text = "Press K or LMB"
+text = "Press K or LMB    to Attack"
 horizontal_alignment = 1
 autowrap_mode = 2
 

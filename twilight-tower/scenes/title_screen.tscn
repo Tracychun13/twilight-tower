@@ -634,7 +634,7 @@ tile_set = SubResource("TileSet_husuu")
 
 [node name="Player" parent="." instance=ExtResource("5_mma67")]
 z_index = 0
-position = Vector2(200, 832)
+position = Vector2(211, 831)
 scale = Vector2(3.27, 3.27)
 collision_mask = 3
 speed_multiplier = 3.0
